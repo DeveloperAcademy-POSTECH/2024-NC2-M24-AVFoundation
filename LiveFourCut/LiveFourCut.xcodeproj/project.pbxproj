@@ -228,9 +228,6 @@
 			);
 			name = LiveFourCut;
 			packageProductDependencies = (
-				08C137942C21229E0010AD75 /* SnapKit */,
-			);
-			packageProductDependencies = (
 			);
 			productName = LiveFourCut;
 			productReference = 08DBE65D2C1C23B1000593D5 /* LiveFourCut.app */;
@@ -305,9 +302,7 @@
 			);
 			mainGroup = 08DBE6542C1C23B1000593D5;
 			packageReferences = (
-				08C137932C2122860010AD75 /* XCRemoteSwiftPackageReference "SnapKit" */,
-			);
-			packageReferences = (
+				087A33F02C21B9A100A7071C /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 08DBE65E2C1C23B1000593D5 /* Products */;
 			projectDirPath = "";
@@ -354,7 +349,7 @@
 				08DBE6652C1C23B1000593D5 /* FrameSelectionViewController.swift in Sources */,
 				08C1379D2C2181260010AD75 /* UIColor+.swift in Sources */,
 				08C1379A2C2162030010AD75 /* PhotoSelectionViewController.swift in Sources */,
-				08DBE6652C1C23B1000593D5 /* ViewController.swift in Sources */,
+				08DBE6652C1C23B1000593D5 /* FrameSelectionViewController.swift in Sources */,
 				6345EE292C21271E0076CE33 /* AsynceSequence.swift in Sources */,
 				08DBE6612C1C23B1000593D5 /* AppDelegate.swift in Sources */,
 				08C137982C2129E30010AD75 /* CardView.swift in Sources */,
@@ -712,6 +707,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		087A33F02C21B9A100A7071C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		08C137932C2122860010AD75 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
