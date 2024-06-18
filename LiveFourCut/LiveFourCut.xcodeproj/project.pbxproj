@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08C137952C21229E0010AD75 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 08C137942C21229E0010AD75 /* SnapKit */; };
+		08C137982C2129E30010AD75 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C137972C2129E30010AD75 /* CardView.swift */; };
+		08C1379A2C2162030010AD75 /* PhotoSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C137992C2162030010AD75 /* PhotoSelectionViewController.swift */; };
+		08C1379D2C2181260010AD75 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C1379C2C2181260010AD75 /* UIColor+.swift */; };
 		08DBE6612C1C23B1000593D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6602C1C23B1000593D5 /* AppDelegate.swift */; };
 		08DBE6632C1C23B1000593D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6622C1C23B1000593D5 /* SceneDelegate.swift */; };
-		08DBE6652C1C23B1000593D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6642C1C23B1000593D5 /* ViewController.swift */; };
+		08DBE6652C1C23B1000593D5 /* FrameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6642C1C23B1000593D5 /* FrameSelectionViewController.swift */; };
 		08DBE66A2C1C23B2000593D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08DBE6692C1C23B2000593D5 /* Assets.xcassets */; };
 		08DBE66D2C1C23B2000593D5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 08DBE66C2C1C23B2000593D5 /* Base */; };
 		08DBE6782C1C23B3000593D5 /* LiveFourCutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6772C1C23B3000593D5 /* LiveFourCutTests.swift */; };
@@ -35,10 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08C137972C2129E30010AD75 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		08C137992C2162030010AD75 /* PhotoSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectionViewController.swift; sourceTree = "<group>"; };
+		08C1379C2C2181260010AD75 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		08DBE65D2C1C23B1000593D5 /* LiveFourCut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveFourCut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DBE6602C1C23B1000593D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08DBE6622C1C23B1000593D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		08DBE6642C1C23B1000593D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		08DBE6642C1C23B1000593D5 /* FrameSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSelectionViewController.swift; sourceTree = "<group>"; };
 		08DBE6692C1C23B2000593D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08DBE66C2C1C23B2000593D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08DBE66E2C1C23B2000593D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C137952C21229E0010AD75 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +82,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08775DFA2C20210A008D8BA6 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				08C1379B2C21811A0010AD75 /* Extensions */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		08775DFB2C20210E008D8BA6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				08DBE6642C1C23B1000593D5 /* FrameSelectionViewController.swift */,
+				08C137992C2162030010AD75 /* PhotoSelectionViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		08775DFC2C20211C008D8BA6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				08C137972C2129E30010AD75 /* CardView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		08C137902C211D860010AD75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08C1379B2C21811A0010AD75 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08C1379C2C2181260010AD75 /* UIColor+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		08DBE6542C1C23B1000593D5 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +129,7 @@
 				08DBE6762C1C23B3000593D5 /* LiveFourCutTests */,
 				08DBE6802C1C23B3000593D5 /* LiveFourCutUITests */,
 				08DBE65E2C1C23B1000593D5 /* Products */,
+				08C137902C211D860010AD75 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +146,11 @@
 		08DBE65F2C1C23B1000593D5 /* LiveFourCut */ = {
 			isa = PBXGroup;
 			children = (
+				08775DFC2C20211C008D8BA6 /* Utils */,
+				08775DFB2C20210E008D8BA6 /* Views */,
+				08775DFA2C20210A008D8BA6 /* Helper */,
 				08DBE6602C1C23B1000593D5 /* AppDelegate.swift */,
 				08DBE6622C1C23B1000593D5 /* SceneDelegate.swift */,
-				08DBE6642C1C23B1000593D5 /* ViewController.swift */,
 				08DBE6692C1C23B2000593D5 /* Assets.xcassets */,
 				08DBE66B2C1C23B2000593D5 /* LaunchScreen.storyboard */,
 				08DBE66E2C1C23B2000593D5 /* Info.plist */,
@@ -140,6 +191,9 @@
 			dependencies = (
 			);
 			name = LiveFourCut;
+			packageProductDependencies = (
+				08C137942C21229E0010AD75 /* SnapKit */,
+			);
 			productName = LiveFourCut;
 			productReference = 08DBE65D2C1C23B1000593D5 /* LiveFourCut.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +266,9 @@
 				Base,
 			);
 			mainGroup = 08DBE6542C1C23B1000593D5;
+			packageReferences = (
+				08C137932C2122860010AD75 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 08DBE65E2C1C23B1000593D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,8 +311,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08DBE6652C1C23B1000593D5 /* ViewController.swift in Sources */,
+				08DBE6652C1C23B1000593D5 /* FrameSelectionViewController.swift in Sources */,
+				08C1379D2C2181260010AD75 /* UIColor+.swift in Sources */,
+				08C1379A2C2162030010AD75 /* PhotoSelectionViewController.swift in Sources */,
 				08DBE6612C1C23B1000593D5 /* AppDelegate.swift in Sources */,
+				08C137982C2129E30010AD75 /* CardView.swift in Sources */,
 				08DBE6632C1C23B1000593D5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +495,7 @@
 				INFOPLIST_FILE = LiveFourCut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -467,6 +528,7 @@
 				INFOPLIST_FILE = LiveFourCut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -603,6 +665,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		08C137932C2122860010AD75 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		08C137942C21229E0010AD75 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08C137932C2122860010AD75 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 08DBE6552C1C23B1000593D5 /* Project object */;
 }
