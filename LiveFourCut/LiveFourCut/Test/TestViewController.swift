@@ -10,12 +10,13 @@ import Photos
 import PhotosUI
 import AVFoundation
 import PinLayout
+import Combine
 enum Test{
     static let main:UIViewController = FetchEditController()
 }
 extension Test{
     final class InputLivePhotoToSimulator: UIViewController{
-        let names = ["IMG_2136","IMG_1965","IMG_1177"]
+        let names = ["IMG_2380","IMG_2382","IMG_2383","IMG_2384"]
         override func viewDidLoad() {
             super.viewDidLoad()
             PHPhotoLibrary.shared().performChanges({
@@ -29,7 +30,6 @@ extension Test{
                 print(success)
                 print(error?.localizedDescription ?? "error")
             }
-            
         }
     }
 }
@@ -52,12 +52,24 @@ extension Test{
             }
         }
         var minDuration:Float = 1000
+        let service = LPtoAVService()
+        var cancellable = Set<AnyCancellable>()
         override func viewDidLoad() {
             super.viewDidLoad()
             configureLayout()
             configureView()
             playBtn.addTarget(self, action: #selector(Self.playTriggerTapped(sender:)), for: .touchUpInside)
             btn.addTarget(self, action: #selector(Self.pickerTriggerTapped(sender:)), for: .touchUpInside)
+            Task{
+                service.wow.receive(on: RunLoop.main).sink{[weak self] assets in
+                    guard let self else {return}
+                    if assets.count == 4{
+                        print("새로운 Asset 할당하기")
+                        let videoViews = [videoView1,videoView2,videoView3,videoView4]
+                        zip(assets,videoViews).forEach{ $1.item = AVPlayerItem(asset: $0) }
+                    }
+                }.store(in: &self.cancellable)
+            }
         }
         func configureLayout(){
             [btn,playBtn,videoView1,videoView2,videoView3,videoView4].forEach({
@@ -103,22 +115,10 @@ extension Test{
             self.present(phVC , animated: true)
         }
         @objc func playTriggerTapped(sender: UIButton){
-            [videoView1,videoView2,videoView3,videoView4].forEach { $0.play() }
-        }
-    }
-}
-extension PHAsset{
-    // AVURLAsset은 AVAsset의 자식 클래스... url 값을 얻을 수 있어서 AVURLAsset 타입으로 반환
-    func convertToAVURLAsset() async throws -> AVURLAsset{
-        return try await withCheckedThrowingContinuation {[weak self] continuation in
-            guard let self else {fatalError("이게 왜 사라져...")}
-            requestContentEditingInput(with: nil) { input, info in
-                guard let input,let imageURL = input.fullSizeImageURL else {return}
-                let videoURLString = imageURL.absoluteString.replacingOccurrences(of: ".HEIC", with: ".MOV")
-                let fileName = String((imageURL.absoluteString.split(separator: "/").last?.split(separator: ".").first ?? ""))
-                guard let videoURL = URL(string: videoURLString) else {fatalError("변환 실패")}
-                let urlAsset = AVURLAsset(url: videoURL)
-                continuation.resume(returning: urlAsset)
+            Task{
+                for v in [videoView1,videoView2,videoView3,videoView4]{
+                    Task.detached { await v.play() }
+                }
             }
         }
     }
@@ -127,60 +127,10 @@ extension Test.FetchEditController: PHPickerViewControllerDelegate{
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         let identifiers = results.map(\.assetIdentifier).map{$0!}
         let assets:PHFetchResult<PHAsset> = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
-        assetCounter = assets.count
-        // 이 메서드는 이미 Concurrent하게 동작함... TaskGroup 작업 할 필요 없음
-        assets.enumerateObjects(options: .concurrent) { asset, idx, pointer in
-            let convertedIdentifier = asset.localIdentifier.replacingOccurrences(of: "/", with: "_")
-            Task{
-                do{
-                    let urlAsset:AVURLAsset = try await asset.convertToAVURLAsset()
-                    let value:Float = (try? await Float(urlAsset.load(.duration).value)) ?? 0
-                    let timeScale: Float = (try? await Float(urlAsset.load(.duration).timescale)) ?? 1
-                    let secondsLength = value / timeScale
-                    self.minDuration = min(secondsLength,self.minDuration)
-                    self.originURLAssets.append((convertedIdentifier,urlAsset))
-                }catch{
-                    print("picker Error",error)
-                }
-                self.assetCounter -= 1
-            }
+        Task{
+            await service.pickerResultAppender(assets: assets)
         }
         self.dismiss(animated: true)
     }
-    func adaptNewMedias(){
-        Task{
-            var assets:[AVAsset] = []
-            for v in self.originURLAssets{
-                assets.append(try await adaptNewMdeia(asset: v.1, identifier: v.0))
-            }
-            if assets.count == 4{
-                let videoViews = [videoView1,videoView2,videoView3,videoView4]
-                for (asset,videoView) in zip(assets,videoViews){
-                    videoView.item = AVPlayerItem(asset: asset)
-                }
-            }
-        }
-    }
 }
-extension Test.FetchEditController{
-    func adaptNewMdeia(asset:AVAsset,identifier:String) async throws -> AVAsset{
-        guard let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
-            fatalError("AVAsset 방출 타입으로 전환 실패")
-        }
-        exportSession.outputFileType = .mov
-        let tempDirectory = FileManager.default.temporaryDirectory
-        let newFileURL = tempDirectory.appendingPathComponent("\(identifier).MOV")
-        exportSession.outputURL = newFileURL
-        print("exportSession URL\n \(newFileURL)")
-        let value:Float = (try? await Float(asset.load(.duration).value)) ?? 0
-        let timeScale: Float = (try? await Float(asset.load(.duration).timescale)) ?? 1
-        let secondsLength = value / timeScale
-        let startTime = CMTime(seconds: Double(0), preferredTimescale: 1000)
-        let endTime = CMTime(seconds: Double(self.minDuration), preferredTimescale: 1000)
-        let timeRange = CMTimeRange(start: startTime, end: endTime)
-        exportSession.timeRange = timeRange
-        await exportSession.export()
-        let newAsset = AVAsset(url: newFileURL)
-        return newAsset
-    }
-}
+

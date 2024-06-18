@@ -49,9 +49,8 @@ extension Test{
             playerLayer.videoGravity = .resizeAspectFill
             self.playerLayer = playerLayer
             self.videoBackgroundView.layer.addSublayer(playerLayer)
-            //        self.player.play()
             let interval = CMTimeMakeWithSeconds(1, preferredTimescale: Int32(NSEC_PER_SEC))
-            self.player.addPeriodicTimeObserver(forInterval: interval, queue: .main, using: { [weak self] elapsedSeconds in
+            self.player.addPeriodicTimeObserver(forInterval: interval, queue: .global(), using: { [weak self] elapsedSeconds in
                 let elapsedTimeSecondsFloat = CMTimeGetSeconds(elapsedSeconds)
                 let totalTimeSecondsFloat = CMTimeGetSeconds(self?.player.currentItem?.duration ?? CMTimeMake(value: 1, timescale: 1))
                 print(elapsedTimeSecondsFloat, totalTimeSecondsFloat)
@@ -71,7 +70,15 @@ extension Test{
         @objc private func changeValue() { }
         
         func play(){
-            self.player.play()
+            let zeroTime = CMTime(seconds: 0, preferredTimescale: 1)
+            self.player.seek(to: zeroTime, toleranceBefore: .zero, toleranceAfter: .zero) { finished in
+                if finished {
+                    self.player.play()
+                } else {
+//                        print("Failed to reset playback time")
+                }
+            }
+            
         }
     }
 }

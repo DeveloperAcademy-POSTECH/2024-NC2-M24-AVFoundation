@@ -15,6 +15,7 @@
 		08DBE6782C1C23B3000593D5 /* LiveFourCutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6772C1C23B3000593D5 /* LiveFourCutTests.swift */; };
 		08DBE6822C1C23B3000593D5 /* LiveFourCutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6812C1C23B3000593D5 /* LiveFourCutUITests.swift */; };
 		08DBE6842C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6832C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift */; };
+		6345EE292C21271E0076CE33 /* AsynceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345EE282C21271E0076CE33 /* AsynceSequence.swift */; };
 		63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC703A2C201C2300F9B3A0 /* TestViewController.swift */; };
 		63FC703E2C201C7000F9B3A0 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 63FC703D2C201C7000F9B3A0 /* PinLayout */; };
 		63FC70412C201DD200F9B3A0 /* TestVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC70402C201DD200F9B3A0 /* TestVideoView.swift */; };
@@ -51,6 +52,7 @@
 		08DBE67D2C1C23B3000593D5 /* LiveFourCutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveFourCutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DBE6812C1C23B3000593D5 /* LiveFourCutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFourCutUITests.swift; sourceTree = "<group>"; };
 		08DBE6832C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFourCutUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6345EE282C21271E0076CE33 /* AsynceSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynceSequence.swift; sourceTree = "<group>"; };
 		63FC703A2C201C2300F9B3A0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		63FC70402C201DD200F9B3A0 /* TestVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVideoView.swift; sourceTree = "<group>"; };
 		63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPtoAVService.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		08DBE65F2C1C23B1000593D5 /* LiveFourCut */ = {
 			isa = PBXGroup;
 			children = (
+				6345EE272C2127110076CE33 /* Helpers */,
 				63FC703F2C201D8600F9B3A0 /* Services */,
 				63FC70392C201BF600F9B3A0 /* Test */,
 				08DBE6602C1C23B1000593D5 /* AppDelegate.swift */,
@@ -132,6 +135,14 @@
 				08DBE6832C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift */,
 			);
 			path = LiveFourCutUITests;
+			sourceTree = "<group>";
+		};
+		6345EE272C2127110076CE33 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6345EE282C21271E0076CE33 /* AsynceSequence.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		63FC70392C201BF600F9B3A0 /* Test */ = {
@@ -288,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08DBE6652C1C23B1000593D5 /* ViewController.swift in Sources */,
+				6345EE292C21271E0076CE33 /* AsynceSequence.swift in Sources */,
 				08DBE6612C1C23B1000593D5 /* AppDelegate.swift in Sources */,
 				63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */,
 				63FC70432C201F1E00F9B3A0 /* LPtoAVService.swift in Sources */,
