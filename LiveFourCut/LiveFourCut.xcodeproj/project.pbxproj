@@ -19,6 +19,10 @@
 		08DBE6782C1C23B3000593D5 /* LiveFourCutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6772C1C23B3000593D5 /* LiveFourCutTests.swift */; };
 		08DBE6822C1C23B3000593D5 /* LiveFourCutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6812C1C23B3000593D5 /* LiveFourCutUITests.swift */; };
 		08DBE6842C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6832C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift */; };
+		6345EE292C21271E0076CE33 /* AsynceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345EE282C21271E0076CE33 /* AsynceSequence.swift */; };
+		63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC703A2C201C2300F9B3A0 /* TestViewController.swift */; };
+		63FC70412C201DD200F9B3A0 /* TestVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC70402C201DD200F9B3A0 /* TestVideoView.swift */; };
+		63FC70432C201F1E00F9B3A0 /* LPtoAVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		08DBE67D2C1C23B3000593D5 /* LiveFourCutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveFourCutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DBE6812C1C23B3000593D5 /* LiveFourCutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFourCutUITests.swift; sourceTree = "<group>"; };
 		08DBE6832C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFourCutUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6345EE282C21271E0076CE33 /* AsynceSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynceSequence.swift; sourceTree = "<group>"; };
+		63FC703A2C201C2300F9B3A0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		63FC70402C201DD200F9B3A0 /* TestVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVideoView.swift; sourceTree = "<group>"; };
+		63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPtoAVService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +157,9 @@
 				08775DFC2C20211C008D8BA6 /* Utils */,
 				08775DFB2C20210E008D8BA6 /* Views */,
 				08775DFA2C20210A008D8BA6 /* Helper */,
+				6345EE272C2127110076CE33 /* Helpers */,
+				63FC703F2C201D8600F9B3A0 /* Services */,
+				63FC70392C201BF600F9B3A0 /* Test */,
 				08DBE6602C1C23B1000593D5 /* AppDelegate.swift */,
 				08DBE6622C1C23B1000593D5 /* SceneDelegate.swift */,
 				08DBE6692C1C23B2000593D5 /* Assets.xcassets */,
@@ -175,6 +186,31 @@
 			path = LiveFourCutUITests;
 			sourceTree = "<group>";
 		};
+		6345EE272C2127110076CE33 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6345EE282C21271E0076CE33 /* AsynceSequence.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		63FC70392C201BF600F9B3A0 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				63FC703A2C201C2300F9B3A0 /* TestViewController.swift */,
+				63FC70402C201DD200F9B3A0 /* TestVideoView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		63FC703F2C201D8600F9B3A0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -193,6 +229,8 @@
 			name = LiveFourCut;
 			packageProductDependencies = (
 				08C137942C21229E0010AD75 /* SnapKit */,
+			);
+			packageProductDependencies = (
 			);
 			productName = LiveFourCut;
 			productReference = 08DBE65D2C1C23B1000593D5 /* LiveFourCut.app */;
@@ -269,6 +307,8 @@
 			packageReferences = (
 				08C137932C2122860010AD75 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
+			packageReferences = (
+			);
 			productRefGroup = 08DBE65E2C1C23B1000593D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -314,9 +354,14 @@
 				08DBE6652C1C23B1000593D5 /* FrameSelectionViewController.swift in Sources */,
 				08C1379D2C2181260010AD75 /* UIColor+.swift in Sources */,
 				08C1379A2C2162030010AD75 /* PhotoSelectionViewController.swift in Sources */,
+				08DBE6652C1C23B1000593D5 /* ViewController.swift in Sources */,
+				6345EE292C21271E0076CE33 /* AsynceSequence.swift in Sources */,
 				08DBE6612C1C23B1000593D5 /* AppDelegate.swift in Sources */,
 				08C137982C2129E30010AD75 /* CardView.swift in Sources */,
+				63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */,
+				63FC70432C201F1E00F9B3A0 /* LPtoAVService.swift in Sources */,
 				08DBE6632C1C23B1000593D5 /* SceneDelegate.swift in Sources */,
+				63FC70412C201DD200F9B3A0 /* TestVideoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +535,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2Q4V2LFG28;
+				DEVELOPMENT_TEAM = 3W9F68ZTUJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveFourCut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -523,7 +568,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2Q4V2LFG28;
+				DEVELOPMENT_TEAM = 3W9F68ZTUJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveFourCut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
