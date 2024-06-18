@@ -42,15 +42,6 @@ extension Test{
         let videoView2 = VideoView()
         let videoView3 = VideoView()
         let videoView4 = VideoView()
-        private var originURLAssets:[(String,AVURLAsset)] = []
-        // 여기 커스텀 Serial Actor를 통해서 Tread-Safe하게 접근할 필요가 있음
-        private var assetCounter:Int = -1{
-            didSet{
-                guard assetCounter == 0 else {return}
-                assetCounter = -1
-                adaptNewMedias()
-            }
-        }
         var minDuration:Float = 1000
         let service = LPtoAVService()
         var cancellable = Set<AnyCancellable>()
@@ -132,5 +123,6 @@ extension Test.FetchEditController: PHPickerViewControllerDelegate{
         }
         self.dismiss(animated: true)
     }
+    
 }
 

@@ -9,6 +9,7 @@ import Foundation
 import Photos
 import PhotosUI
 import Combine
+enum LPtoAVError:Error{ }
 protocol LPtoAVServiceProtocol{
     
 }
@@ -19,7 +20,11 @@ actor LPtoAVService: NSObject{
             guard assetCounter == 0 else {return}
             assetCounter = -1
             Task{
-                try await adaptNewMedias()
+                do{
+                    try await adaptNewMedias()
+                }catch{
+                    fatalError("새로운 영상 만들기 실패")
+                }
             }
         }
     }
@@ -50,7 +55,7 @@ extension LPtoAVService{
                     self.minDuration = min(secondsLength,self.minDuration)
                     self.originURLAssets.append((convertedIdentifier,urlAsset))
                 }catch{
-                    print("picker Error",error)
+                    fatalError("영상 추출 에러")
                 }
                 self.assetCounter -= 1
             }
@@ -97,7 +102,4 @@ extension AVAsset{
         let newAsset = AVURLAsset(url: newFileURL)
         return newAsset
     }
-}
-enum LPtoAVError:Error{
-    
 }

@@ -17,7 +17,6 @@
 		08DBE6842C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6832C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift */; };
 		6345EE292C21271E0076CE33 /* AsynceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345EE282C21271E0076CE33 /* AsynceSequence.swift */; };
 		63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC703A2C201C2300F9B3A0 /* TestViewController.swift */; };
-		63FC703E2C201C7000F9B3A0 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 63FC703D2C201C7000F9B3A0 /* PinLayout */; };
 		63FC70412C201DD200F9B3A0 /* TestVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC70402C201DD200F9B3A0 /* TestVideoView.swift */; };
 		63FC70432C201F1E00F9B3A0 /* LPtoAVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */; };
 /* End PBXBuildFile section */
@@ -63,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63FC703E2C201C7000F9B3A0 /* PinLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +177,6 @@
 			);
 			name = LiveFourCut;
 			packageProductDependencies = (
-				63FC703D2C201C7000F9B3A0 /* PinLayout */,
 			);
 			productName = LiveFourCut;
 			productReference = 08DBE65D2C1C23B1000593D5 /* LiveFourCut.app */;
@@ -254,7 +251,6 @@
 			);
 			mainGroup = 08DBE6542C1C23B1000593D5;
 			packageReferences = (
-				63FC703C2C201C7000F9B3A0 /* XCRemoteSwiftPackageReference "PinLayout" */,
 			);
 			productRefGroup = 08DBE65E2C1C23B1000593D5 /* Products */;
 			projectDirPath = "";
@@ -651,25 +647,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		63FC703C2C201C7000F9B3A0 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/layoutBox/PinLayout.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.10.5;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		63FC703D2C201C7000F9B3A0 /* PinLayout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63FC703C2C201C7000F9B3A0 /* XCRemoteSwiftPackageReference "PinLayout" */;
-			productName = PinLayout;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 08DBE6552C1C23B1000593D5 /* Project object */;
 }
