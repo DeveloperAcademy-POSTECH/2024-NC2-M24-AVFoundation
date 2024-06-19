@@ -14,6 +14,8 @@ class LoadingVC: BaseVC{
         self.loadingAlertView = alertView
         alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {[weak self] _ in
             self?.loadingAlertView?.dismiss(animated: true){
+                self?.loadingAlertView = nil
+                self?.loadingProgressView = nil
                 cancelAction()
             }
         }))

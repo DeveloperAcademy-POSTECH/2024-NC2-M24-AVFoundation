@@ -145,8 +145,9 @@ extension Test{
             pregress.isHidden = true
             selectDoneBtn.action = { [weak self] in
                 guard let self else {return}
-                presentLoadingAlert(message: "라이브 포토 영상으로 변환 중...")
-                Task{ 
+                presentLoadingAlert(message: "라이브 포토 영상으로 변환 중...", cancelAction: { [weak self] in
+                })
+                Task{
                     await self.videoExecutor.run()
                 }
             }
