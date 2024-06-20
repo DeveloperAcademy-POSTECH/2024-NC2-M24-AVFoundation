@@ -98,6 +98,7 @@ extension AVAsset{
         exportSession.outputURL = newFileURL
         exportSession.timeRange = timeRange
         await exportSession.export()
+        try await Task.sleep(nanoseconds: 4000)
         let newAsset = AVURLAsset(url: newFileURL)
         return newAsset
     }

@@ -6,9 +6,3 @@
 //
 
 import UIKit
-
-extension Test.PhotoSelectorVC{
-    final class BottomProgress:UIProgressView{
-        
-    }
-}

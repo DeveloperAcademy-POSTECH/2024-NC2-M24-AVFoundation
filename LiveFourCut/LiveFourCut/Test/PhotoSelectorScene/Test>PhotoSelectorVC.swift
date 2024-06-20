@@ -30,6 +30,7 @@ extension Test{
         let selectDoneBtn = SelectDoneBtn()
         let pregress = UIProgressView(progressViewStyle: .bar)
         let reSelectPhotoBtn = ReSelectPhotoBtn()
+        let navigationBackButton = NavigationBackButton()
         let titleLabel: UILabel = {
             let label = UILabel()
             label.text = "순서대로 선택하소~"
@@ -137,7 +138,9 @@ extension Test{
             }
         }
         override func configureNavigation() {
-            navigationItem.title = "앨범 선택 테스트 뷰"
+            self.view.addSubview(navigationBackButton)
+            navigationBackButton.backgroundColor = .black
+            
         }
         override func configureView() {
             self.view.backgroundColor = .systemBackground
