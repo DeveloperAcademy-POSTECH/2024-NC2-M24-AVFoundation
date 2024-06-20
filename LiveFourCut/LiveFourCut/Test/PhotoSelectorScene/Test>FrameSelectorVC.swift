@@ -2,7 +2,7 @@
 //  Test>FrameSelectorVC.swift
 //  LiveFourCut
 //
-//  Created by Developer on 6/19/24.
+//  Created by Greem on 6/19/24.
 //
 //MARK: -- 임시로 프레임 선택하는 뷰 컨트롤러
 import UIKit

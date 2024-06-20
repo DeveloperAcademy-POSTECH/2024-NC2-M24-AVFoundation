@@ -2,17 +2,16 @@
 //  LPtoAVService.swift
 //  LiveFourCut
 //
-//  Created by Developer on 6/17/24.
+//  Created by Greem on 6/17/24.
 //
 
 import Foundation
 import Photos
 import PhotosUI
 import Combine
-enum LPtoAVError:Error{ }
-protocol LPtoAVServiceProtocol{
-    
-}
+enum LPtoAVError:Error { }
+
+protocol LPtoAVServiceProtocol { }
 actor LPtoAVService: NSObject{
     private var originURLAssets:[(String,AVURLAsset)] = []
     private var assetCounter:Int = -1{
@@ -39,7 +38,7 @@ actor LPtoAVService: NSObject{
 }
 extension LPtoAVService{
     
-    func pickerResultAppender(assets:PHFetchResult<PHAsset>){
+    func pickerResultAppender(assets:PHFetchResult<PHAsset>) {
 //        PHLivePhoto()
         assetCounter = assets.count
         originURLAssets.removeAll()
