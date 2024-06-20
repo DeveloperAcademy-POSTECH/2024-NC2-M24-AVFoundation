@@ -44,13 +44,7 @@ actor ThumbnailExecutor{ // Actor는 상속이 가능하다
         }
     }
 }
-struct AVAssetContainer:Identifiable{
-    var id: String
-    let asset:AVAsset
-    let idx: Int
-    let originalAssetURL:String
-    var tempFileName:String{id.replacingOccurrences(of: "/", with: "-")}
-}
+
 actor VideoExecutor{
     let videosSubject: PassthroughSubject<[AVAssetContainer],Never> = .init()
     let progressSubject:PassthroughSubject<Float,Never> = .init()
