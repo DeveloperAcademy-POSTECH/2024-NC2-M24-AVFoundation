@@ -2,7 +2,7 @@
 //  TestViewController.swift
 //  LiveFourCut
 //
-//  Created by Developer on 6/17/24.
+//  Created by Greem on 6/17/24.
 //
 
 import UIKit
@@ -104,24 +104,21 @@ extension Test{
             phVC.delegate = self
             self.present(phVC , animated: true)
         }
-        @objc func playTriggerTapped(sender: UIButton){
-            Task{
-                for v in [videoView1,videoView2,videoView3,videoView4]{
+        @objc func playTriggerTapped(sender: UIButton) {
+            Task {
+                for v in [videoView1,videoView2,videoView3,videoView4] {
                     Task.detached { await v.play() }
                 }
             }
         }
     }
 }
-extension Test.FetchEditController: PHPickerViewControllerDelegate{
+extension Test.FetchEditController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         let identifiers = results.map(\.assetIdentifier).map{$0!}
         let assets:PHFetchResult<PHAsset> = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
-        Task{
-            await service.pickerResultAppender(assets: assets)
-        }
+        Task{ await service.pickerResultAppender(assets: assets) }
         self.dismiss(animated: true)
     }
     
 }
-

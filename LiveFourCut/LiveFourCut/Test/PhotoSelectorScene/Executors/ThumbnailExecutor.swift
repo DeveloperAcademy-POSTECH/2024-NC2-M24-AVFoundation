@@ -2,7 +2,7 @@
 //  ThumbnailExecutor.swift
 //  LiveFourCut
 //
-//  Created by Developer on 6/19/24.
+//  Created by Greem on 6/19/24.
 //
 
 import Foundation
@@ -44,14 +44,8 @@ actor ThumbnailExecutor{ // Actor는 상속이 가능하다
         }
     }
 }
-struct AVAssetContainer:Identifiable{
-    var id: String
-    let asset:AVAsset
-    let idx: Int
-    let originalAssetURL:String
-    var tempFileName:String{id.replacingOccurrences(of: "/", with: "-")}
-}
-actor VideoExecutor{
+
+actor VideoExecutor {
     let videosSubject: PassthroughSubject<[AVAssetContainer],Never> = .init()
     let progressSubject:PassthroughSubject<Float,Never> = .init()
     private var minDuration:Float = 1000
@@ -108,7 +102,7 @@ actor VideoExecutor{
         self.videosSubject.send(newAVssetContainers)
     }
 }
-extension FileManager{
+extension FileManager {
     func tempFileExist(fileName:String) -> Bool{
         let newFileURL = self.temporaryDirectory.appendingPathComponent(fileName)
         return self.fileExists(atPath: newFileURL.absoluteString)

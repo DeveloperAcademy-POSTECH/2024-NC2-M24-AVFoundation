@@ -2,7 +2,7 @@
 //  TestVideoView.swift
 //  LiveFourCut
 //
-//  Created by Developer on 6/17/24.
+//  Created by Greem on 6/17/24.
 //
 
 import Foundation
@@ -55,9 +55,7 @@ extension Test{
                 let totalTimeSecondsFloat = CMTimeGetSeconds(self?.player.currentItem?.duration ?? CMTimeMake(value: 1, timescale: 1))
                 print(elapsedTimeSecondsFloat, totalTimeSecondsFloat)
             })
-            
         }
-        
         required init?(coder: NSCoder) {
             fatalError()
         }

@@ -2,7 +2,7 @@
 //  AsyncSequence.swift
 //  LiveFourCut
 //
-//  Created by Developer on 6/18/24.
+//  Created by Greem on 6/18/24.
 //
 
 import Foundation
