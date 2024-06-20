@@ -70,6 +70,7 @@ extension Test{
         @objc private func changeValue() { }
         
         func play(){
+            self.player.pause()
             let zeroTime = CMTime(seconds: 0, preferredTimescale: 1)
             self.player.seek(to: zeroTime, toleranceBefore: .zero, toleranceAfter: .zero) { finished in
                 if finished {

@@ -121,14 +121,15 @@ class FrameSelectionViewController: UIViewController {
         
         // 2 프레임 Card 추가
         for i in 0..<2 {
-            let frameView = CardView(number: i)
+            let frameView = CardView(image: UIImage(named: i == 0 ? "Hanroro1" : "Hanroro2"),number: nil)
             twoFrameStackView.addArrangedSubview(frameView)
         }
         
         // 4 프레임 Card 추가
         [upperRowStackView, lowerRowStackView].forEach { fourFrameStackView.addArrangedSubview($0) }
         for i in 0..<2 {
-            let upperFrameView = CardView(image: UIImage(named: "Hanroro4"), number: nil)
+            
+            let upperFrameView =  CardView(image: UIImage(named: i == 0 ? "Hanroro3" : "Hanroro4"), number: nil)
             let lowerFrameView = CardView(number: i+2)
             upperRowStackView.addArrangedSubview(upperFrameView)
             lowerRowStackView.addArrangedSubview(lowerFrameView)

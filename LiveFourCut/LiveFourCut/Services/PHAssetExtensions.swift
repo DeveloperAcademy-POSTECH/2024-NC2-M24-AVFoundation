@@ -24,7 +24,7 @@ extension PHAsset{
         let scale = UIScreen.main.scale
         let screenSize = UIScreen.main.bounds
         let maxPixel = if let size{
-             max(size.width, size.height) * scale
+            max(size.width, size.height) * scale
         }else{
             max(screenSize.width,screenSize.height) * scale
         }
@@ -40,4 +40,5 @@ extension PHAsset{
             UIImage(resource: .hanroro1)
         }
     }
+    
 }

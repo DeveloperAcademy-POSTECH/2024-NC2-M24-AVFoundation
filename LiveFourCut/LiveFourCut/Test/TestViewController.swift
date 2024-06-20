@@ -11,7 +11,8 @@ import PhotosUI
 import AVFoundation
 import Combine
 enum Test{
-    static let main:UIViewController = UINavigationController(rootViewController: FrameSelectorVC())
+    static let main:UIViewController = VideoMakerVC()
+//    UINavigationController(rootViewController: FrameSelectorVC())
 }
 extension Test{
     final class InputLivePhotoToSimulator: UIViewController{

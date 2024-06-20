@@ -17,6 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = UINavigationController(rootViewController: FrameSelectionViewController())
 //        Test.main
 //        UINavigationController(rootViewController: FrameSelectionViewController())
+        
+//        UINavigationController(rootViewController: FrameSelectionViewController())
 //        self.window?.rootViewController = UINavigationController(rootViewController: SharingViewController())
         self.window?.makeKeyAndVisible()
     }
