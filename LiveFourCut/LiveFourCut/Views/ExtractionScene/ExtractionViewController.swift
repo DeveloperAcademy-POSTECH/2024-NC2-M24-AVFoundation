@@ -28,34 +28,53 @@ class ExtractionViewController: UIViewController {
     
     var recordedView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemGray
+        view.layer.cornerRadius = 20
         return view
     }()
     
     var overlayView: UIView = {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = .white
         return view
+    }()
+    
+    var extractionLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "추출해보실??"
+        label.tintColor = .black
+        label.font = .systemFont(ofSize: 25, weight: .bold)
+        
+        return label
     }()
     
     var imageView1: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .gray
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
         return view
     }()
     var imageView2: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .gray
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
         return view
     }()
     var imageView3: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .gray
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
         return view
     }()
     var imageView4: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .gray
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
         return view
     }()
     
@@ -91,43 +110,51 @@ class ExtractionViewController: UIViewController {
         [imageView1, imageView2, imageView3, imageView4].forEach {
             self.recordedView.addSubview($0)
         }
-        self.overlayView.addSubview(extractionButton)
+        [extractionLabel, extractionButton].forEach {
+            self.overlayView.addSubview($0)
+        }
+        
         extractionButton.addTarget(self, action: #selector(extract), for: .touchUpInside)
     }
     
     private func setupConstraints() {
         
+        extractionLabel.snp.makeConstraints {
+            $0.centerX.equalTo(self.overlayView.snp.centerX)
+            $0.centerY.equalTo(self.overlayView.snp.centerY)
+        }
+        
         recordedView.snp.makeConstraints {
             $0.width.equalTo(300)
-            $0.height.equalTo(400)
+            $0.height.equalTo(390)
             $0.centerX.equalTo(self.view.snp.centerX)
             $0.centerY.equalTo(self.view.snp.centerY)
         }
         
         imageView1.snp.makeConstraints {
-            $0.width.equalTo(120)
-            $0.height.equalTo(160)
+            $0.width.equalTo(135)
+            $0.height.equalTo(180)
             $0.top.equalTo(self.recordedView.snp.top).inset(10)
             $0.leading.equalTo(self.recordedView.snp.leading).inset(10)
         }
         
         imageView2.snp.makeConstraints {
-            $0.width.equalTo(120)
-            $0.height.equalTo(160)
+            $0.width.equalTo(135)
+            $0.height.equalTo(180)
             $0.top.equalTo(self.recordedView.snp.top).inset(10)
             $0.trailing.equalTo(self.recordedView.snp.trailing).inset(10)
         }
         
         imageView3.snp.makeConstraints {
-            $0.width.equalTo(120)
-            $0.height.equalTo(160)
+            $0.width.equalTo(135)
+            $0.height.equalTo(180)
             $0.bottom.equalTo(self.recordedView.snp.bottom).inset(10)
             $0.leading.equalTo(self.recordedView.snp.leading).inset(10)
         }
         
         imageView4.snp.makeConstraints {
-            $0.width.equalTo(120)
-            $0.height.equalTo(160)
+            $0.width.equalTo(135)
+            $0.height.equalTo(180)
             $0.bottom.equalTo(self.recordedView.snp.bottom).inset(10)
             $0.trailing.equalTo(self.recordedView.snp.trailing).inset(10)
         }
@@ -151,18 +178,18 @@ class ExtractionViewController: UIViewController {
         guard let assets else { return }
         
         avAssetContainers.forEach {
-            for i in 0..<Int($0.minDuration * 10) {
+            for i in 0..<Int($0.minDuration * 24) {
                 images.append(getFrameImage(asset: assets[$0.idx], seconds: Double(i))!)
             }
         }
-        for i in 0..<Int(self.minDuration! * 10) {
+        for i in 0..<Int(self.minDuration! * 24) {
             self.imageView1.image = images[i]
-            self.imageView2.image = images[4+i]
-            self.imageView3.image = images[8+i]
-            self.imageView4.image = images[12+i]
+            self.imageView2.image = images[Int(self.minDuration! * 24)*1+i]
+            self.imageView3.image = images[Int(self.minDuration! * 24)*2+i]
+            self.imageView4.image = images[Int(self.minDuration! * 24)*3+i]
             self.extractedUIImages.append(self.recordedView.asImage())
         }
-        let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("temp.mp4")
+        let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("LiveFourCut.mp4")
                    if FileManager.default.fileExists(atPath: outputURL.path()){
                        try? FileManager.default.removeItem(at: outputURL)
                    }
@@ -184,7 +211,7 @@ class ExtractionViewController: UIViewController {
         let generator = AVAssetImageGenerator(asset: asset)
         generator.appliesPreferredTrackTransform = true
         
-        let timestamp = CMTime(seconds: seconds, preferredTimescale: 10)
+        let timestamp = CMTime(seconds: seconds, preferredTimescale: 24)
         do {
             let imageRef = try generator.copyCGImage(at: timestamp, actualTime: nil)
             return UIImage(cgImage: imageRef)

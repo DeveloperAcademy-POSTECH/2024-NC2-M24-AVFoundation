@@ -19,13 +19,13 @@ final class FourCutPreViewController: BaseVC{
         label.font = .systemFont(ofSize: 25, weight: .bold)
         return label
     }()
-    let shareBtn = DoneBtn(title: "4컷 영상 공유하기")
+    let shareBtn = DoneBtn(title: "4컷 영상 추출하러가기")
     let replayBtn = DescriptionBtn(title: "다시 재생하기")
     var minDuration: Float = 0{
         didSet{ preFourFrameView.minDuration = minDuration }
     }
-    var assetContainers:[AVAssetContainer]!{
-        didSet{ preFourFrameView.containers = assetContainers }
+    var avAssetContainers:[AVAssetContainer]!{
+        didSet{ preFourFrameView.containers = avAssetContainers }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +71,14 @@ final class FourCutPreViewController: BaseVC{
     }
     override func configureView() {
         self.view.backgroundColor = .systemBackground
+        let extractionVC = ExtractionViewController()
+        extractionVC.avAssetContainers = self.avAssetContainers
+        print(extractionVC.avAssetContainers?.count)
+        extractionVC.minDuration = self.minDuration
+        
+        shareBtn.action = {
+            self.navigationController?.pushViewController(extractionVC, animated: true)
+        }
         replayBtn.action = {
             self.preFourFrameView.play()
         }

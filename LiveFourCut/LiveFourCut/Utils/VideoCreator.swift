@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class VideoCreator {
-    func createVideo(from images: [UIImage], outputURL: URL, fps: Int32 = 10, completion: @escaping (Bool, Error?) -> Void) {
+    func createVideo(from images: [UIImage], outputURL: URL, fps: Int32 = 24, completion: @escaping (Bool, Error?) -> Void) {
         print(images.count)
         guard !images.isEmpty else {
             completion(false, NSError(domain: "com.example.VideoCreator", code: -1, userInfo: [NSLocalizedDescriptionKey: "No images to create video"]))

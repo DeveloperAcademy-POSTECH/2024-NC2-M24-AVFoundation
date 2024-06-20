@@ -87,11 +87,10 @@ final class PhotoSelectionViewController: LoadingVC{
                     Task{@MainActor in
                         let min = await self!.videoExecutor.minDuration
                         self?.dismissLoadingAlert{
-//                            let vc = FourCutPreViewController()
-                            let vc = ExtractionViewController()
+                            let vc = FourCutPreViewController()
                             
                             vc.avAssetContainers = orderAssetContainers
-                            
+                            vc.minDuration = min
                             self?.navigationController?.pushViewController(vc, animated: true)
                         }
                     }
