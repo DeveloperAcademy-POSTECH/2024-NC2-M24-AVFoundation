@@ -10,7 +10,7 @@ import UIKit
 extension PhotoSelectionViewController{
     final class SelectDoneBtn: UIButton{
         var action: (()->())?
-        init(){
+        init(title:String){
             super.init(frame: .zero)
             self.addTarget(self, action: #selector(Self.doneTapped(sender:)), for: .touchUpInside)
             var config = UIButton.Configuration.filled()

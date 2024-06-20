@@ -10,10 +10,7 @@ import AVFoundation
 
 struct AVAssetContainer:Identifiable {
     var id: String
-    let asset:AVAsset
     let idx: Int
+    let minDuration:Float
     let originalAssetURL:String
-    var tempFileName:String{
-        id.replacingOccurrences(of: "/", with: "-")
-    }
 }

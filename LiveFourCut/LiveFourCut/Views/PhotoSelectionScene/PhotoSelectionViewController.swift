@@ -14,7 +14,7 @@ final class PhotoSelectionViewController: LoadingVC{
     //MARK: -- View 저장 프로퍼티
     let thumbnailFrameView = ThumbnailFourFrameView()
     let thumbnailSelectorView = ThumbnailSelectorView()
-    let selectDoneBtn = SelectDoneBtn()
+    let selectDoneBtn = DoneBtn(title: "4컷 영상 미리보기")
     let pregress = UIProgressView(progressViewStyle: .bar)
     let reSelectPhotoBtn = ReSelectPhotoBtn()
     let navigationBackButton = NavigationBackButton()
@@ -74,11 +74,23 @@ final class PhotoSelectionViewController: LoadingVC{
                 .sink { [weak self] progressNumber in
                     self?.loadingProgressView?.progress = progressNumber
                 }.store(in: &cancellable)
-            videoExecutor.videosSubject.receive(on: RunLoop.main)
-                .sink { [weak self] avassetContainers in
+            videoExecutor.videosSubject.sink { [weak self] avassetContainers in
+                let orderIdentifiers = self?.vm.selectImageContainerSubject.value.compactMap({$0}).map(\.id)
+                guard let orderIdentifiers, orderIdentifiers.count == self?.frameCount else {
+                    fatalError("왜 여기 있지?")
+                }
+                var avassetContainers = avassetContainers
+                let orderAssetContainers:[AVAssetContainer] = orderIdentifiers.map{ identifier in
+                    let firstIdx = avassetContainers.firstIndex(where: {$0.id == identifier})
+                    return avassetContainers.remove(at: firstIdx!)
+                }
                     Task{@MainActor in
+                        let min = await self!.videoExecutor.minDuration
                         self?.dismissLoadingAlert{
-                            let vc = PreviewVC()
+                            let vc = FourCutPreViewController()
+                            vc.minDuration = min
+                            vc.assetContainers = orderAssetContainers
+                            
                             self?.navigationController?.pushViewController(vc, animated: true)
                         }
                     }

@@ -23,6 +23,11 @@
 		630779FC2C24530A00C4017A /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630779FB2C24530A00C4017A /* UINavigationController+.swift */; };
 		630779FF2C2453CF00C4017A /* AVAssetContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630779FE2C2453CF00C4017A /* AVAssetContainer.swift */; };
 		63077A022C24542900C4017A /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63077A012C24542900C4017A /* NavigationBackButton.swift */; };
+		63077A052C245BD100C4017A /* FourCutPreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63077A042C245BD100C4017A /* FourCutPreViewController.swift */; };
+		63077A072C245C6900C4017A /* PreFourFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63077A062C245C6900C4017A /* PreFourFrameView.swift */; };
+		63077A0A2C24662200C4017A /* DoneBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63077A092C24662200C4017A /* DoneBtn.swift */; };
+		63077A0C2C246C9300C4017A /* VideoExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63077A0B2C246C9300C4017A /* VideoExecutor.swift */; };
+		63077A0E2C247D2200C4017A /* PreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63077A0D2C247D2200C4017A /* PreCardView.swift */; };
 		633EB1192C22B886006F89E7 /* ThumbnailSelectorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB1182C22B886006F89E7 /* ThumbnailSelectorVM.swift */; };
 		633EB11B2C22B8D7006F89E7 /* ImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB11A2C22B8D7006F89E7 /* ImageContainer.swift */; };
 		633EB11D2C22BDE7006F89E7 /* Test>SelectDoneBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB11C2C22BDE7006F89E7 /* Test>SelectDoneBtn.swift */; };
@@ -85,6 +90,11 @@
 		630779FB2C24530A00C4017A /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		630779FE2C2453CF00C4017A /* AVAssetContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetContainer.swift; sourceTree = "<group>"; };
 		63077A012C24542900C4017A /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
+		63077A042C245BD100C4017A /* FourCutPreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourCutPreViewController.swift; sourceTree = "<group>"; };
+		63077A062C245C6900C4017A /* PreFourFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreFourFrameView.swift; sourceTree = "<group>"; };
+		63077A092C24662200C4017A /* DoneBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneBtn.swift; sourceTree = "<group>"; };
+		63077A0B2C246C9300C4017A /* VideoExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExecutor.swift; sourceTree = "<group>"; };
+		63077A0D2C247D2200C4017A /* PreCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreCardView.swift; sourceTree = "<group>"; };
 		633EB1182C22B886006F89E7 /* ThumbnailSelectorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailSelectorVM.swift; sourceTree = "<group>"; };
 		633EB11A2C22B8D7006F89E7 /* ImageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageContainer.swift; sourceTree = "<group>"; };
 		633EB11C2C22BDE7006F89E7 /* Test>SelectDoneBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test>SelectDoneBtn.swift"; sourceTree = "<group>"; };
@@ -139,7 +149,6 @@
 		08775DFA2C20210A008D8BA6 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				63077A002C24541D00C4017A /* ViewHelpers */,
 				6345EE282C21271E0076CE33 /* AsyncSequence.swift */,
 				08C1379B2C21811A0010AD75 /* Extensions */,
 			);
@@ -149,6 +158,7 @@
 		08775DFB2C20210E008D8BA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63077A032C245BAB00C4017A /* FourCutPreScene */,
 				638F14DA2C23DA8700CD3F2E /* FrameSelectionScene */,
 				638F14D72C23DA5600CD3F2E /* PhotoSelectionScene */,
 				086438152C21FB63007A428E /* SharingViewController.swift */,
@@ -159,6 +169,8 @@
 		08775DFC2C20211C008D8BA6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				633EB1162C22B82B006F89E7 /* Executors */,
+				63077A002C24541D00C4017A /* ViewHelpers */,
 				08C137972C2129E30010AD75 /* CardView.swift */,
 				63DB9D492C21DD5D0047DED0 /* BaseVC.swift */,
 				638F14E22C23DC7C00CD3F2E /* LoadingVC.swift */,
@@ -260,14 +272,34 @@
 			isa = PBXGroup;
 			children = (
 				63077A012C24542900C4017A /* NavigationBackButton.swift */,
+				63077A092C24662200C4017A /* DoneBtn.swift */,
 			);
 			path = ViewHelpers;
+			sourceTree = "<group>";
+		};
+		63077A032C245BAB00C4017A /* FourCutPreScene */ = {
+			isa = PBXGroup;
+			children = (
+				63077A082C245C7A00C4017A /* ViewComponents */,
+				63077A042C245BD100C4017A /* FourCutPreViewController.swift */,
+			);
+			path = FourCutPreScene;
+			sourceTree = "<group>";
+		};
+		63077A082C245C7A00C4017A /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				63077A062C245C6900C4017A /* PreFourFrameView.swift */,
+				63077A0D2C247D2200C4017A /* PreCardView.swift */,
+			);
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 		633EB1162C22B82B006F89E7 /* Executors */ = {
 			isa = PBXGroup;
 			children = (
 				63DB9D4D2C21ED320047DED0 /* ThumbnailExecutor.swift */,
+				63077A0B2C246C9300C4017A /* VideoExecutor.swift */,
 			);
 			path = Executors;
 			sourceTree = "<group>";
@@ -312,7 +344,6 @@
 			isa = PBXGroup;
 			children = (
 				633EB1182C22B886006F89E7 /* ThumbnailSelectorVM.swift */,
-				633EB1162C22B82B006F89E7 /* Executors */,
 				63DB9D4B2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift */,
 				63DB9D432C21D8740047DED0 /* Test>PhotoSelectorVC.swift */,
 				63DB9D462C21D8C10047DED0 /* ViewComponents */,
@@ -497,21 +528,26 @@
 				086438162C21FB63007A428E /* SharingViewController.swift in Sources */,
 				638F14DD2C23DAD900CD3F2E /* ThumbnailFourFrameView.swift in Sources */,
 				63DB9D4A2C21DD5D0047DED0 /* BaseVC.swift in Sources */,
+				63077A072C245C6900C4017A /* PreFourFrameView.swift in Sources */,
 				630779FC2C24530A00C4017A /* UINavigationController+.swift in Sources */,
 				633EB11D2C22BDE7006F89E7 /* Test>SelectDoneBtn.swift in Sources */,
 				638F14E32C23DC7C00CD3F2E /* LoadingVC.swift in Sources */,
 				638F14DF2C23DB6200CD3F2E /* ThumbnailSelectorView.swift in Sources */,
+				63077A052C245BD100C4017A /* FourCutPreViewController.swift in Sources */,
 				6345EE292C21271E0076CE33 /* AsyncSequence.swift in Sources */,
 				08DBE6612C1C23B1000593D5 /* AppDelegate.swift in Sources */,
+				63077A0C2C246C9300C4017A /* VideoExecutor.swift in Sources */,
 				63DB9D4C2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift in Sources */,
 				08C137982C2129E30010AD75 /* CardView.swift in Sources */,
 				6345EE292C21271E0076CE33 /* AsyncSequence.swift in Sources */,
 				63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */,
 				63FC70432C201F1E00F9B3A0 /* LPtoAVService.swift in Sources */,
 				638F14E12C23DC1C00CD3F2E /* SelectDoneButton.swift in Sources */,
+				63077A0E2C247D2200C4017A /* PreCardView.swift in Sources */,
 				630779FF2C2453CF00C4017A /* AVAssetContainer.swift in Sources */,
 				633EB1242C22F091006F89E7 /* Test>BottomProgress.swift in Sources */,
 				633EB1192C22B886006F89E7 /* ThumbnailSelectorVM.swift in Sources */,
+				63077A0A2C24662200C4017A /* DoneBtn.swift in Sources */,
 				08DBE6632C1C23B1000593D5 /* SceneDelegate.swift in Sources */,
 				63DB9D482C21D8E50047DED0 /* Test>ThumbnailFourFrameView.swift in Sources */,
 				63FC70412C201DD200F9B3A0 /* TestVideoView.swift in Sources */,
