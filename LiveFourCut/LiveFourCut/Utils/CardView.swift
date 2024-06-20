@@ -10,9 +10,20 @@ import SnapKit
 
 class CardView: UIImageView {
     
+    var thumbnail:UIImage?{
+        didSet{
+            guard let thumbnail else {
+                numberLabel.isHidden = false
+                self.image = nil
+                return
+            }
+            self.image = thumbnail
+            numberLabel.isHidden = true
+        }
+    }
     // MARK: - Properties
 
-    private lazy var numberLabel: UILabel = {
+    lazy var numberLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -25,6 +36,7 @@ class CardView: UIImageView {
         super.init(frame: .zero)
         self.setupView()
         self.image = image
+        self.thumbnail = image
         if let number {
             self.numberLabel.text = "\(number)"
         }
@@ -44,6 +56,9 @@ class CardView: UIImageView {
     }
     
     private func setupConstraints() {
+        self.snp.makeConstraints { make in
+            make.height.equalTo(self.snp.width).multipliedBy(1.58)
+        }
         numberLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()

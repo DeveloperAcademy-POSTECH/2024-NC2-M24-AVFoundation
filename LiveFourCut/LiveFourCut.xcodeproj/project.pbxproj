@@ -20,7 +20,21 @@
 		08DBE6782C1C23B3000593D5 /* LiveFourCutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6772C1C23B3000593D5 /* LiveFourCutTests.swift */; };
 		08DBE6822C1C23B3000593D5 /* LiveFourCutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6812C1C23B3000593D5 /* LiveFourCutUITests.swift */; };
 		08DBE6842C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DBE6832C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift */; };
-		6345EE292C21271E0076CE33 /* AsynceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345EE282C21271E0076CE33 /* AsynceSequence.swift */; };
+		633EB1192C22B886006F89E7 /* ThumbnailSelectorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB1182C22B886006F89E7 /* ThumbnailSelectorVM.swift */; };
+		633EB11B2C22B8D7006F89E7 /* ImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB11A2C22B8D7006F89E7 /* ImageContainer.swift */; };
+		633EB11D2C22BDE7006F89E7 /* SelectDoneBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB11C2C22BDE7006F89E7 /* SelectDoneBtn.swift */; };
+		633EB1202C22C087006F89E7 /* PreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB11F2C22C087006F89E7 /* PreviewVC.swift */; };
+		633EB1222C22C3DD006F89E7 /* FrameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB1212C22C3DD006F89E7 /* FrameCardView.swift */; };
+		633EB1242C22F091006F89E7 /* BottomProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB1232C22F091006F89E7 /* BottomProgress.swift */; };
+		633EB1262C230F80006F89E7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB1252C230F80006F89E7 /* LoadingView.swift */; };
+		6345EE292C21271E0076CE33 /* AsyncSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345EE282C21271E0076CE33 /* AsyncSequence.swift */; };
+		63B869F32C22690800577592 /* ThumbnailSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B869F22C22690800577592 /* ThumbnailSelectorView.swift */; };
+		63DB9D442C21D8740047DED0 /* Test>PhotoSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D432C21D8740047DED0 /* Test>PhotoSelectorVC.swift */; };
+		63DB9D482C21D8E50047DED0 /* ThumbnailFourFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D472C21D8E50047DED0 /* ThumbnailFourFrameView.swift */; };
+		63DB9D4A2C21DD5D0047DED0 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D492C21DD5D0047DED0 /* BaseVC.swift */; };
+		63DB9D4C2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D4B2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift */; };
+		63DB9D4E2C21ED320047DED0 /* ThumbnailExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D4D2C21ED320047DED0 /* ThumbnailExecutor.swift */; };
+		63DB9D502C21ED9A0047DED0 /* PHAssetExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D4F2C21ED9A0047DED0 /* PHAssetExtensions.swift */; };
 		63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC703A2C201C2300F9B3A0 /* TestViewController.swift */; };
 		63FC70412C201DD200F9B3A0 /* TestVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC70402C201DD200F9B3A0 /* TestVideoView.swift */; };
 		63FC70432C201F1E00F9B3A0 /* LPtoAVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */; };
@@ -60,7 +74,21 @@
 		08DBE67D2C1C23B3000593D5 /* LiveFourCutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveFourCutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DBE6812C1C23B3000593D5 /* LiveFourCutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFourCutUITests.swift; sourceTree = "<group>"; };
 		08DBE6832C1C23B3000593D5 /* LiveFourCutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFourCutUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		6345EE282C21271E0076CE33 /* AsynceSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynceSequence.swift; sourceTree = "<group>"; };
+		633EB1182C22B886006F89E7 /* ThumbnailSelectorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailSelectorVM.swift; sourceTree = "<group>"; };
+		633EB11A2C22B8D7006F89E7 /* ImageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageContainer.swift; sourceTree = "<group>"; };
+		633EB11C2C22BDE7006F89E7 /* SelectDoneBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoneBtn.swift; sourceTree = "<group>"; };
+		633EB11F2C22C087006F89E7 /* PreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewVC.swift; sourceTree = "<group>"; };
+		633EB1212C22C3DD006F89E7 /* FrameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCardView.swift; sourceTree = "<group>"; };
+		633EB1232C22F091006F89E7 /* BottomProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomProgress.swift; sourceTree = "<group>"; };
+		633EB1252C230F80006F89E7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		6345EE282C21271E0076CE33 /* AsyncSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncSequence.swift; sourceTree = "<group>"; };
+		63B869F22C22690800577592 /* ThumbnailSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailSelectorView.swift; sourceTree = "<group>"; };
+		63DB9D432C21D8740047DED0 /* Test>PhotoSelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test>PhotoSelectorVC.swift"; sourceTree = "<group>"; };
+		63DB9D472C21D8E50047DED0 /* ThumbnailFourFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailFourFrameView.swift; sourceTree = "<group>"; };
+		63DB9D492C21DD5D0047DED0 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		63DB9D4B2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test>FrameSelectorVC.swift"; sourceTree = "<group>"; };
+		63DB9D4D2C21ED320047DED0 /* ThumbnailExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailExecutor.swift; sourceTree = "<group>"; };
+		63DB9D4F2C21ED9A0047DED0 /* PHAssetExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetExtensions.swift; sourceTree = "<group>"; };
 		63FC703A2C201C2300F9B3A0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		63FC70402C201DD200F9B3A0 /* TestVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVideoView.swift; sourceTree = "<group>"; };
 		63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPtoAVService.swift; sourceTree = "<group>"; };
@@ -95,6 +123,7 @@
 		08775DFA2C20210A008D8BA6 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				6345EE282C21271E0076CE33 /* AsyncSequence.swift */,
 				08C1379B2C21811A0010AD75 /* Extensions */,
 			);
 			path = Helper;
@@ -114,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				08C137972C2129E30010AD75 /* CardView.swift */,
+				63DB9D492C21DD5D0047DED0 /* BaseVC.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -160,7 +190,6 @@
 				08775DFC2C20211C008D8BA6 /* Utils */,
 				08775DFB2C20210E008D8BA6 /* Views */,
 				08775DFA2C20210A008D8BA6 /* Helper */,
-				6345EE272C2127110076CE33 /* Helpers */,
 				63FC703F2C201D8600F9B3A0 /* Services */,
 				63FC70392C201BF600F9B3A0 /* Test */,
 				08DBE6602C1C23B1000593D5 /* AppDelegate.swift */,
@@ -189,17 +218,53 @@
 			path = LiveFourCutUITests;
 			sourceTree = "<group>";
 		};
-		6345EE272C2127110076CE33 /* Helpers */ = {
+		633EB1162C22B82B006F89E7 /* Executors */ = {
 			isa = PBXGroup;
 			children = (
-				6345EE282C21271E0076CE33 /* AsynceSequence.swift */,
+				63DB9D4D2C21ED320047DED0 /* ThumbnailExecutor.swift */,
 			);
-			path = Helpers;
+			path = Executors;
+			sourceTree = "<group>";
+		};
+		633EB11E2C22C07F006F89E7 /* PreviewScene */ = {
+			isa = PBXGroup;
+			children = (
+				633EB11F2C22C087006F89E7 /* PreviewVC.swift */,
+			);
+			path = PreviewScene;
+			sourceTree = "<group>";
+		};
+		63DB9D452C21D8B20047DED0 /* PhotoSelectorScene */ = {
+			isa = PBXGroup;
+			children = (
+				633EB1182C22B886006F89E7 /* ThumbnailSelectorVM.swift */,
+				633EB1162C22B82B006F89E7 /* Executors */,
+				63DB9D4B2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift */,
+				63DB9D432C21D8740047DED0 /* Test>PhotoSelectorVC.swift */,
+				63DB9D462C21D8C10047DED0 /* ViewComponents */,
+				633EB11A2C22B8D7006F89E7 /* ImageContainer.swift */,
+			);
+			path = PhotoSelectorScene;
+			sourceTree = "<group>";
+		};
+		63DB9D462C21D8C10047DED0 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				63DB9D472C21D8E50047DED0 /* ThumbnailFourFrameView.swift */,
+				633EB1212C22C3DD006F89E7 /* FrameCardView.swift */,
+				63B869F22C22690800577592 /* ThumbnailSelectorView.swift */,
+				633EB11C2C22BDE7006F89E7 /* SelectDoneBtn.swift */,
+				633EB1232C22F091006F89E7 /* BottomProgress.swift */,
+				633EB1252C230F80006F89E7 /* LoadingView.swift */,
+			);
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 		63FC70392C201BF600F9B3A0 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				633EB11E2C22C07F006F89E7 /* PreviewScene */,
+				63DB9D452C21D8B20047DED0 /* PhotoSelectorScene */,
 				63FC703A2C201C2300F9B3A0 /* TestViewController.swift */,
 				63FC70402C201DD200F9B3A0 /* TestVideoView.swift */,
 			);
@@ -210,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */,
+				63DB9D4F2C21ED9A0047DED0 /* PHAssetExtensions.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -349,17 +415,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DB9D502C21ED9A0047DED0 /* PHAssetExtensions.swift in Sources */,
 				08DBE6652C1C23B1000593D5 /* FrameSelectionViewController.swift in Sources */,
+				63DB9D4E2C21ED320047DED0 /* ThumbnailExecutor.swift in Sources */,
+				63B869F32C22690800577592 /* ThumbnailSelectorView.swift in Sources */,
 				08C1379D2C2181260010AD75 /* UIColor+.swift in Sources */,
+				63DB9D442C21D8740047DED0 /* Test>PhotoSelectorVC.swift in Sources */,
 				086438162C21FB63007A428E /* SharingViewController.swift in Sources */,
 				08C1379A2C2162030010AD75 /* PhotoSelectionViewController.swift in Sources */,
-				6345EE292C21271E0076CE33 /* AsynceSequence.swift in Sources */,
+				63DB9D4A2C21DD5D0047DED0 /* BaseVC.swift in Sources */,
+				633EB11D2C22BDE7006F89E7 /* SelectDoneBtn.swift in Sources */,
+				6345EE292C21271E0076CE33 /* AsyncSequence.swift in Sources */,
+				633EB1262C230F80006F89E7 /* LoadingView.swift in Sources */,
 				08DBE6612C1C23B1000593D5 /* AppDelegate.swift in Sources */,
+				63DB9D4C2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift in Sources */,
 				08C137982C2129E30010AD75 /* CardView.swift in Sources */,
+				6345EE292C21271E0076CE33 /* AsyncSequence.swift in Sources */,
 				63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */,
 				63FC70432C201F1E00F9B3A0 /* LPtoAVService.swift in Sources */,
+				633EB1242C22F091006F89E7 /* BottomProgress.swift in Sources */,
+				633EB1192C22B886006F89E7 /* ThumbnailSelectorVM.swift in Sources */,
 				08DBE6632C1C23B1000593D5 /* SceneDelegate.swift in Sources */,
+				63DB9D482C21D8E50047DED0 /* ThumbnailFourFrameView.swift in Sources */,
 				63FC70412C201DD200F9B3A0 /* TestVideoView.swift in Sources */,
+				633EB11B2C22B8D7006F89E7 /* ImageContainer.swift in Sources */,
+				633EB1222C22C3DD006F89E7 /* FrameCardView.swift in Sources */,
+				633EB1202C22C087006F89E7 /* PreviewVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,7 +614,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2Q4V2LFG28;
+				DEVELOPMENT_TEAM = 3W9F68ZTUJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveFourCut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -566,7 +647,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2Q4V2LFG28;
+				DEVELOPMENT_TEAM = 3W9F68ZTUJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveFourCut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
