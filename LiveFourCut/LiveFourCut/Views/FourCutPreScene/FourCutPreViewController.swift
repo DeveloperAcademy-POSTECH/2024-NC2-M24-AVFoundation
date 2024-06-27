@@ -75,7 +75,7 @@ final class FourCutPreViewController: BaseVC{
         extractionVC.avAssetContainers = self.avAssetContainers
         print(extractionVC.avAssetContainers?.count)
         extractionVC.minDuration = self.minDuration
-        
+        extractionVC.isLaunch = false
         shareBtn.action = {
             self.navigationController?.pushViewController(extractionVC, animated: true)
         }

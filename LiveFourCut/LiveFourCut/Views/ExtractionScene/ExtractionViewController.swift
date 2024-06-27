@@ -18,6 +18,7 @@ class ExtractionViewController: UIViewController {
     
     var extractedUIImages: [UIImage] = []
     
+    let backButton = NavigationBackButton()
     lazy var assets: [AVAsset]? = avAssetContainers?.compactMap { container in
         if let url = URL(string: container.originalAssetURL) {
             return AVAsset(url: url)
@@ -42,7 +43,7 @@ class ExtractionViewController: UIViewController {
     var extractionLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "추출해보실??"
+        label.text = "추출 하소~"
         label.tintColor = .black
         label.font = .systemFont(ofSize: 25, weight: .bold)
         
@@ -79,7 +80,7 @@ class ExtractionViewController: UIViewController {
     }()
     
     var images: [UIImage] = []
-    
+    var isLaunch = false
     let extractionButton: UIButton = {
         let button = UIButton(type: .system)
         
@@ -87,9 +88,11 @@ class ExtractionViewController: UIViewController {
         configuration.baseBackgroundColor = .systemBlue
         configuration.title = "추출 버튼"
         button.configuration = configuration
-        
+//        button.isHidden = true
         return button
     }()
+    
+    let progress = UIProgressView(progressViewStyle: .bar)
     
     // MARK: - Life Cycle
     
@@ -104,7 +107,7 @@ class ExtractionViewController: UIViewController {
     // MARK: - Setup
     
     private func setupUI(){
-        [recordedView, overlayView].forEach {
+        [recordedView, overlayView,backButton].forEach {
             self.view.addSubview($0)
         }
         [imageView1, imageView2, imageView3, imageView4].forEach {
@@ -113,7 +116,6 @@ class ExtractionViewController: UIViewController {
         [extractionLabel, extractionButton].forEach {
             self.overlayView.addSubview($0)
         }
-        
         extractionButton.addTarget(self, action: #selector(extract), for: .touchUpInside)
     }
     
@@ -169,37 +171,44 @@ class ExtractionViewController: UIViewController {
             $0.centerX.equalTo(self.view.snp.centerX)
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-20)
         }
+        backButton.snp.makeConstraints { make in
+            make.leading.equalTo(self.view).inset(16.5)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(4)
+        }
+        backButton.action = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
-    
     // MARK: - Functions
     
     @objc func extract() {
         guard let avAssetContainers else { return }
         guard let assets else { return }
-        
         avAssetContainers.forEach {
-            for i in 0..<Int($0.minDuration * 24) {
+            for i in 0..<Int($0.minDuration * 5) {
                 images.append(getFrameImage(asset: assets[$0.idx], seconds: Double(i))!)
             }
         }
-        for i in 0..<Int(self.minDuration! * 24) {
+        for i in 0..<Int(self.minDuration! * 5) {
             self.imageView1.image = images[i]
-            self.imageView2.image = images[Int(self.minDuration! * 24)*1+i]
-            self.imageView3.image = images[Int(self.minDuration! * 24)*2+i]
-            self.imageView4.image = images[Int(self.minDuration! * 24)*3+i]
+            self.imageView2.image = images[Int(self.minDuration! * 5)*1+i]
+            self.imageView3.image = images[Int(self.minDuration! * 5)*2+i]
+            self.imageView4.image = images[Int(self.minDuration! * 5)*3+i]
             self.extractedUIImages.append(self.recordedView.asImage())
         }
         let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("LiveFourCut.mp4")
                    if FileManager.default.fileExists(atPath: outputURL.path()){
                        try? FileManager.default.removeItem(at: outputURL)
                    }
-        VideoCreator().createVideo(from: extractedUIImages, outputURL: outputURL) { success, _ in 
+        print("만들 프레임 계수",extractedUIImages.count)
+        
+        VideoCreator().createVideo(from: extractedUIImages, outputURL: outputURL) { success, _ in
             if success {
                 Task{
                     @MainActor in
                     let sharingViewController = SharingViewController()
                     sharingViewController.videoURL = outputURL
-                    self.navigationController?.isNavigationBarHidden = false
+                    self.navigationController?.isNavigationBarHidden = true
                     self.navigationController?.pushViewController(sharingViewController, animated: true)
                 }
             }
@@ -211,7 +220,7 @@ class ExtractionViewController: UIViewController {
         let generator = AVAssetImageGenerator(asset: asset)
         generator.appliesPreferredTrackTransform = true
         
-        let timestamp = CMTime(seconds: seconds, preferredTimescale: 24)
+        let timestamp = CMTime(seconds: seconds, preferredTimescale: 5)
         do {
             let imageRef = try generator.copyCGImage(at: timestamp, actualTime: nil)
             return UIImage(cgImage: imageRef)
