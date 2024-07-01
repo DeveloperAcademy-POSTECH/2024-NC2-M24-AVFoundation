@@ -79,7 +79,7 @@ class ExtractionViewController: UIViewController {
         return view
     }()
     
-    var images: [UIImage] = []
+    var images: [[UIImage?]] = [[],[],[],[]]
     var isLaunch = false
     let extractionButton: UIButton = {
         let button = UIButton(type: .system)
@@ -184,46 +184,85 @@ class ExtractionViewController: UIViewController {
     @objc func extract() {
         guard let avAssetContainers else { return }
         guard let assets else { return }
-        avAssetContainers.forEach {
-            for i in 0..<Int($0.minDuration * 5) {
-                images.append(getFrameImage(asset: assets[$0.idx], seconds: Double(i))!)
+        Task{
+            for v in avAssetContainers{
+                let asset = assets[v.idx]
+                self.images[v.idx] = Array(repeating: nil, count: Int(v.minDuration * 24) + 1)
+                let generator = AVAssetImageGenerator(asset: asset)
+                generator.appliesPreferredTrackTransform = true
+                generator.requestedTimeToleranceBefore = .init(seconds: Double(1 / 48), preferredTimescale: 600)
+                generator.requestedTimeToleranceAfter = .init(seconds: Double(1 / 48), preferredTimescale: 600)
+                for idx in (0..<Int(v.minDuration * 24)){
+                    let time = CMTime(seconds: Double(idx) / 24, preferredTimescale: 600)
+                    let (img,actualTime) = try await generator.image(at: time)
+                    print("\(idx)-------------")
+                    print("요청 Track: \(time.seconds)초")
+                    print("실제 캡쳐 Track 시간 \(actualTime.seconds)초")
+                    print("------------------\n")
+                    self.images[v.idx][idx] = UIImage(cgImage: img)
+                }
+//                for await res in generator.images(for: (0..<Int(v.minDuration * 24)).map{val in CMTime(seconds: Double(val) / 24, preferredTimescale: 600)}){
+//                    switch res{
+//                    case .failure(requestedTime: let time, error: let error):
+//                        print(error)
+//                    case .success(requestedTime: let time, image: let img, actualTime: let actualTime):
+//                        print("time \(time),actualTime \(actualTime)")
+//                        
+//                    }
+//                }
             }
-        }
-        for i in 0..<Int(self.minDuration! * 5) {
-            self.imageView1.image = images[i]
-            self.imageView2.image = images[Int(self.minDuration! * 5)*1+i]
-            self.imageView3.image = images[Int(self.minDuration! * 5)*2+i]
-            self.imageView4.image = images[Int(self.minDuration! * 5)*3+i]
-            self.extractedUIImages.append(self.recordedView.asImage())
-        }
-        let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("LiveFourCut.mp4")
-                   if FileManager.default.fileExists(atPath: outputURL.path()){
-                       try? FileManager.default.removeItem(at: outputURL)
-                   }
-        print("만들 프레임 계수",extractedUIImages.count)
-        
-        VideoCreator().createVideo(from: extractedUIImages, outputURL: outputURL) { success, _ in
-            if success {
-                Task{
-                    @MainActor in
-                    let sharingViewController = SharingViewController()
-                    sharingViewController.videoURL = outputURL
-                    self.navigationController?.isNavigationBarHidden = true
-                    self.navigationController?.pushViewController(sharingViewController, animated: true)
+            await MainActor.run {
+                print("계수",images.count)
+                Task{[images = images] in
+                    images.enumerated().forEach{ (offset, items) in
+                        for (idx,item) in items.enumerated(){
+                            guard let item else {return}
+                            let imgURL = FileManager.default.temporaryDirectory.appendingPathComponent("\(offset)_\(idx)_item.jpeg", conformingTo: .jpeg)
+                            FileManager.default.createFile(atPath: imgURL.path(), contents: item.jpegData(compressionQuality: 0.5))
+                        }
+                    }
+                }
+                
+                for i in 0..<Int(self.minDuration! * 24) {
+                    [imageView1,imageView2,imageView3,imageView4].enumerated().forEach { idx,view in
+                        if let img = images[idx][i]{
+                            view.image = img
+                        }
+                    }
+                    self.extractedUIImages.append(self.recordedView.asImage())
+                }
+                let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("LiveFourCut.mp4")
+                print("output URL \(outputURL)")
+                if FileManager.default.fileExists(atPath: outputURL.path()){
+                    try? FileManager.default.removeItem(at: outputURL)
+                }
+                print("만들 프레임 계수",extractedUIImages.count)
+               
+                VideoCreator().createVideo(from: extractedUIImages, outputURL: outputURL) { success, _ in
+                    if success {
+                        Task{ @MainActor in
+                            let sharingViewController = SharingViewController()
+                            sharingViewController.videoURL = outputURL
+                            self.navigationController?.isNavigationBarHidden = true
+                            self.navigationController?.pushViewController(sharingViewController, animated: true)
+                        }
+                    }
                 }
             }
         }
-        
     }
     
-    private func getFrameImage(asset: AVAsset, seconds: Double) -> UIImage? {
+    private func getFrameImage(asset: AVAsset, seconds: Double) async -> UIImage? {
         let generator = AVAssetImageGenerator(asset: asset)
         generator.appliesPreferredTrackTransform = true
-        
-        let timestamp = CMTime(seconds: seconds, preferredTimescale: 5)
+        print("받는 초",seconds)
+        let timestamp = CMTime(seconds: seconds, preferredTimescale: 600)
         do {
-            let imageRef = try generator.copyCGImage(at: timestamp, actualTime: nil)
-            return UIImage(cgImage: imageRef)
+            let imgs = generator.images(for: [timestamp])
+//            let imageRef = try generator.copyCGImage(at: timestamp, actualTime: nil)
+                let (image,actualTime) = try await generator.image(at: timestamp)
+                print("actualTime \(actualTime)")
+                return UIImage(cgImage: image)
         } catch let error as NSError
         {
             print("이미지 생성에 실패했습니다: \(error)")
