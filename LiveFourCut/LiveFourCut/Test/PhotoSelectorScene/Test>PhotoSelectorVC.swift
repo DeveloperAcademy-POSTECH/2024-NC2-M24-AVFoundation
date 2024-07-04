@@ -26,7 +26,7 @@ extension Test.PhotoSelectorVC{
 extension Test{
     final class PhotoSelectorVC: LoadingVC{
         let thumbnailFrameView = ThumbnailFourFrameView()
-        let thumbnailSelectorView = ThumbnailSelectorView()
+        let thumbnailSelectorView = ThumbnailSelectorViewTest()
         let selectDoneBtn = SelectDoneBtn()
         let pregress = UIProgressView(progressViewStyle: .bar)
         let reSelectPhotoBtn = ReSelectPhotoBtn()

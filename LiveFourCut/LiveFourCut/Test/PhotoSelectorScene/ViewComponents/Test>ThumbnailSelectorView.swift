@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 extension Test.PhotoSelectorVC{
-    final class ThumbnailSelectorView: UIStackView{
+    final class ThumbnailSelectorViewTest: UIStackView{
         var imageContainers:[ImageContainer] = []{
             didSet{
                 guard imageContainers.count == 4 else {return}
@@ -56,7 +56,7 @@ extension Test.PhotoSelectorVC{
         }
     }
 }
-extension Test.PhotoSelectorVC.ThumbnailSelectorView{
+extension Test.PhotoSelectorVC.ThumbnailSelectorViewTest{
     final class ThumnailItem:UIView{
         weak var vm:ThumbnailSelectorVM!
         var imageContainer: ImageContainer!{

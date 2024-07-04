@@ -38,7 +38,7 @@ class Wow:UIViewController{
         let images = ["rabbits","rabbit","lemon","demo"].map { (name:String) in
             let img = UIImage(named: name)!.flipImageHorizontal()!
             let (height,width) = (CGFloat(img.height),CGFloat(img.width))
-            let centerCropSize = CGRect.cropCenter(width: width, height: height, ratio: targetRatio)
+            let centerCropSize = CGRect.cropFromCenter(width: width, height: height, ratio: targetRatio)
             return img.cropping(to: centerCropSize)!.makeRoundedCorner()!
         }
         let nW = 0.5 * width - 1.5 * spacing
@@ -55,10 +55,9 @@ class Wow:UIViewController{
             context.cgContext.addPath(roundedPath2)
             context.cgContext.closePath()
             context.cgContext.fillPath()
-            context.cgContext.draw(images[0], in: rtRect, byTiling: false)
-            context.cgContext.draw(images[1], in: ltRect, byTiling: false)
-            context.cgContext.draw(images[2], in: ldRect, byTiling: false)
-            context.cgContext.draw(images[3], in: rdRect, byTiling: false)
+            zip(images,[ltRect,rtRect,ldRect,rdRect]).forEach { image,rect in
+                context.cgContext.draw(image, in: rect, byTiling: false)
+            }
         }
         if idx == 0{
             DispatchQueue.main.async{
@@ -69,7 +68,7 @@ class Wow:UIViewController{
     }
 }
 extension CGImage{
-    func makeRoundedCorner() -> CGImage?{
+    func makeRoundedCorner(radius:CGFloat = 0) -> CGImage?{
         var cgImage = self
         let width = cgImage.width
         let height = cgImage.height
@@ -83,9 +82,8 @@ extension CGImage{
                                       bitmapInfo: bitmapInfo.rawValue) else { return nil }
         context.setFillColor(UIColor.blue.cgColor)
         context.fill([.init(x: 0, y: 0, width: width, height: height)])
-        let ratio = CGFloat(cgImage.width) / 300
         context.beginPath()
-        let roundedPath2 = CGPath.init(roundedRect: .init(x: 0, y: 0, width: width, height: height), cornerWidth: 40 * ratio , cornerHeight: 40 * ratio, transform: nil)
+        let roundedPath2 = CGPath.init(roundedRect: .init(x: 0, y: 0, width: width, height: height), cornerWidth: radius , cornerHeight: radius, transform: nil)
         context.addPath(roundedPath2)
         context.closePath()
         context.clip()
@@ -122,7 +120,7 @@ extension UIImage{
     
 }
 extension CGRect{
-    static func cropCenter(width:CGFloat,height:CGFloat,ratio targetRatio:CGFloat) -> Self{
+    static func cropFromCenter(width:CGFloat,height:CGFloat,ratio targetRatio:CGFloat = 1) -> Self{
         var yOffset:CGFloat = 0
         var xOffset:CGFloat = 0
         var height:CGFloat = height

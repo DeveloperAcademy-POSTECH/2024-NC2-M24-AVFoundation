@@ -88,7 +88,6 @@ class ExtractionViewController: UIViewController {
         configuration.baseBackgroundColor = .systemBlue
         configuration.title = "추출 버튼"
         button.configuration = configuration
-//        button.isHidden = true
         return button
     }()
     
@@ -195,50 +194,22 @@ class ExtractionViewController: UIViewController {
                 for idx in (0..<Int(v.minDuration * 24)){
                     let time = CMTime(seconds: Double(idx) / 24, preferredTimescale: 600)
                     let (img,actualTime) = try await generator.image(at: time)
-                    print("\(idx)-------------")
-                    print("요청 Track: \(time.seconds)초")
-                    print("실제 캡쳐 Track 시간 \(actualTime.seconds)초")
-                    print("------------------\n")
                     self.images[v.idx][idx] = UIImage(cgImage: img)
                 }
-//                for await res in generator.images(for: (0..<Int(v.minDuration * 24)).map{val in CMTime(seconds: Double(val) / 24, preferredTimescale: 600)}){
-//                    switch res{
-//                    case .failure(requestedTime: let time, error: let error):
-//                        print(error)
-//                    case .success(requestedTime: let time, image: let img, actualTime: let actualTime):
-//                        print("time \(time),actualTime \(actualTime)")
-//                        
-//                    }
-//                }
             }
             await MainActor.run {
                 print("계수",images.count)
-                Task{[images = images] in
-                    images.enumerated().forEach{ (offset, items) in
-                        for (idx,item) in items.enumerated(){
-                            guard let item else {return}
-                            let imgURL = FileManager.default.temporaryDirectory.appendingPathComponent("\(offset)_\(idx)_item.jpeg", conformingTo: .jpeg)
-                            FileManager.default.createFile(atPath: imgURL.path(), contents: item.jpegData(compressionQuality: 0.5))
-                        }
-                    }
-                }
-                
                 for i in 0..<Int(self.minDuration! * 24) {
                     [imageView1,imageView2,imageView3,imageView4].enumerated().forEach { idx,view in
-                        if let img = images[idx][i]{
-                            view.image = img
-                        }
+                        if let img = images[idx][i]{ view.image = img }
                     }
                     self.extractedUIImages.append(self.recordedView.asImage())
                 }
                 let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("LiveFourCut.mp4")
-                print("output URL \(outputURL)")
                 if FileManager.default.fileExists(atPath: outputURL.path()){
                     try? FileManager.default.removeItem(at: outputURL)
                 }
-                print("만들 프레임 계수",extractedUIImages.count)
-               
-                VideoCreator().createVideo(from: extractedUIImages, outputURL: outputURL) { success, _ in
+                VideoCreator.createVideo(from: extractedUIImages, outputURL: outputURL) { success, _ in
                     if success {
                         Task{ @MainActor in
                             let sharingViewController = SharingViewController()
@@ -259,14 +230,23 @@ class ExtractionViewController: UIViewController {
         let timestamp = CMTime(seconds: seconds, preferredTimescale: 600)
         do {
             let imgs = generator.images(for: [timestamp])
-//            let imageRef = try generator.copyCGImage(at: timestamp, actualTime: nil)
-                let (image,actualTime) = try await generator.image(at: timestamp)
-                print("actualTime \(actualTime)")
-                return UIImage(cgImage: image)
+            let (image,actualTime) = try await generator.image(at: timestamp)
+            return UIImage(cgImage: image)
         } catch let error as NSError
         {
             print("이미지 생성에 실패했습니다: \(error)")
             return nil
         }
+    }
+    private func testForImageLists() async {
+        //                Task{[images = images] in
+        //                    images.enumerated().forEach{ (offset, items) in
+        //                        for (idx,item) in items.enumerated(){
+        //                            guard let item else {return}
+        //                            let imgURL = FileManager.default.temporaryDirectory.appendingPathComponent("\(offset)_\(idx)_item.jpeg", conformingTo: .jpeg)
+        //                            FileManager.default.createFile(atPath: imgURL.path(), contents: item.jpegData(compressionQuality: 0.5))
+        //                        }
+        //                    }
+        //                }
     }
 }

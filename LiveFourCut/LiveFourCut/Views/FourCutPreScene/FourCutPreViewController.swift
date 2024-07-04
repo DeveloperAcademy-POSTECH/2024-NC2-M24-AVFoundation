@@ -10,6 +10,9 @@ import Combine
 import CoreMedia
 
 final class FourCutPreViewController: BaseVC{
+    // MARK: -- Service 연결
+    let extractService = ExtractService()
+    let frameService = FrameGenerator()
     //MARK: -- View 저장 프로퍼티
     private let preFourFrameView = PreFourFrameView()
     private let navigationBackButton = NavigationBackButton()
@@ -22,10 +25,16 @@ final class FourCutPreViewController: BaseVC{
     let shareBtn = DoneBtn(title: "4컷 영상 추출하러가기")
     let replayBtn = DescriptionBtn(title: "다시 재생하기")
     var minDuration: Float = 0{
-        didSet{ preFourFrameView.minDuration = minDuration }
+        didSet{ 
+            preFourFrameView.minDuration = minDuration
+            extractService.minDuration = Double(minDuration)
+        }
     }
     var avAssetContainers:[AVAssetContainer]!{
-        didSet{ preFourFrameView.containers = avAssetContainers }
+        didSet{ 
+            preFourFrameView.containers = avAssetContainers
+            extractService.avAssetContainers = avAssetContainers
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,13 +80,39 @@ final class FourCutPreViewController: BaseVC{
     }
     override func configureView() {
         self.view.backgroundColor = .systemBackground
-        let extractionVC = ExtractionViewController()
-        extractionVC.avAssetContainers = self.avAssetContainers
-        print(extractionVC.avAssetContainers?.count)
-        extractionVC.minDuration = self.minDuration
-        extractionVC.isLaunch = false
+//        let extractionVC = ExtractionViewController()
+//        extractionVC.avAssetContainers = self.avAssetContainers
+//        print(extractionVC.avAssetContainers?.count)
+//        extractionVC.minDuration = self.minDuration
+//        extractionVC.isLaunch = false
+        
         shareBtn.action = {
-            self.navigationController?.pushViewController(extractionVC, animated: true)
+            Task{[weak self] in
+                guard let self else { return }
+                self.extractService.minDuration = Double(self.minDuration)
+                print("minDuration \(self.minDuration)")
+                let frameImages = try await self.extractService.extractFrameImages()
+                let imgDatas:[CGImage] = try await self.frameService.groupReduce(groupImage: frameImages, spacing: 10)
+                print("추출은 된다. \(frameImages.first?.count)")
+                print("감소는 된다. \(imgDatas.count)")
+                let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("LiveFourCut.mp4")
+                if FileManager.default.fileExists(atPath: outputURL.path()){
+                    try? FileManager.default.removeItem(at: outputURL)
+                }
+                let videoCreator = VideoCreator(videoSize: self.frameService.frameTargetSize, outputURL: outputURL)
+                videoCreator.createVideo(from: imgDatas) { success, error in
+                    if success{
+                        DispatchQueue.main.async {
+                            let sharingViewController = SharingViewController()
+                            sharingViewController.videoURL = outputURL
+                            self.navigationController?.isNavigationBarHidden = true
+                            self.navigationController?.pushViewController(sharingViewController, animated: true)
+                        }
+                    }
+                }
+            }
+            
+//            self.navigationController?.pushViewController(extractionVC, animated: true)
         }
         replayBtn.action = {
             self.preFourFrameView.play()
