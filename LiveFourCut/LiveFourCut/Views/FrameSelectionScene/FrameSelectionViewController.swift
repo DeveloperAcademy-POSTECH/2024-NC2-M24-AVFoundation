@@ -129,6 +129,7 @@ class FrameSelectionViewController: UIViewController {
         [upperRowStackView, lowerRowStackView].forEach { fourFrameStackView.addArrangedSubview($0) }
         for i in 0..<2 {
             let upperFrameView = CardView(image: UIImage(named: i == 0 ? "Hanroro3" : "Hanroro4"), number: nil)
+
             let lowerFrameView = CardView(number: i+2)
             upperRowStackView.addArrangedSubview(upperFrameView)
             lowerRowStackView.addArrangedSubview(lowerFrameView)

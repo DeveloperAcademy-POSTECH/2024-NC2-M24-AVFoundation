@@ -56,6 +56,7 @@ extension Test.PhotoSelectorVC{
         }
     }
 }
+
 extension Test.PhotoSelectorVC.ThumbnailSelectorViewTest{
     final class ThumnailItem:UIView{
         weak var vm:ThumbnailSelectorVM!

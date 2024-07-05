@@ -48,6 +48,7 @@
 		63B68F7D2C35976B0047D610 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B68F7C2C35976B0047D610 /* LoadingVC.swift */; };
 		63B869F32C22690800577592 /* Test>ThumbnailSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B869F22C22690800577592 /* Test>ThumbnailSelectorView.swift */; };
 		63C9F9102C3598DB00451694 /* ThumbnailSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C9F90F2C3598DB00451694 /* ThumbnailSelectorView.swift */; };
+
 		63DB9D442C21D8740047DED0 /* Test>PhotoSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D432C21D8740047DED0 /* Test>PhotoSelectorVC.swift */; };
 		63DB9D482C21D8E50047DED0 /* Test>ThumbnailFourFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D472C21D8E50047DED0 /* Test>ThumbnailFourFrameView.swift */; };
 		63DB9D4A2C21DD5D0047DED0 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D492C21DD5D0047DED0 /* BaseVC.swift */; };
@@ -135,6 +136,7 @@
 		63B68F7C2C35976B0047D610 /* LoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		63B869F22C22690800577592 /* Test>ThumbnailSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test>ThumbnailSelectorView.swift"; sourceTree = "<group>"; };
 		63C9F90F2C3598DB00451694 /* ThumbnailSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailSelectorView.swift; sourceTree = "<group>"; };
+
 		63DB9D432C21D8740047DED0 /* Test>PhotoSelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test>PhotoSelectorVC.swift"; sourceTree = "<group>"; };
 		63DB9D472C21D8E50047DED0 /* Test>ThumbnailFourFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test>ThumbnailFourFrameView.swift"; sourceTree = "<group>"; };
 		63DB9D492C21DD5D0047DED0 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			children = (
 				630779FD2C24537200C4017A /* Models */,
 				630779F82C24515900C4017A /* ViewModels */,
+				08775DFC2C20211C008D8BA6 /* Utils */,
 				08775DFB2C20210E008D8BA6 /* Views */,
 				08775DFA2C20210A008D8BA6 /* Helper */,
 				63FC703F2C201D8600F9B3A0 /* Services */,
@@ -713,7 +716,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -770,7 +773,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
