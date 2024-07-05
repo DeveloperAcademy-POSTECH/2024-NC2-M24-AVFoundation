@@ -2,7 +2,7 @@
 //  TestPhotoSelectorVC.swift
 //  LiveFourCut
 //
-//  Created by Developer on 6/18/24.
+//  Created by Greem on 6/18/24.
 //
 
 import UIKit
@@ -26,7 +26,7 @@ extension Test.PhotoSelectorVC{
 extension Test{
     final class PhotoSelectorVC: LoadingVC{
         let thumbnailFrameView = ThumbnailFourFrameView()
-        let thumbnailSelectorView = ThumbnailSelectorView()
+        let thumbnailSelectorView = ThumbnailSelectorViewTest()
         let selectDoneBtn = SelectDoneBtn()
         let pregress = UIProgressView(progressViewStyle: .bar)
         let reSelectPhotoBtn = ReSelectPhotoBtn()

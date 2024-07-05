@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		084EC5C22C249E4300BA9FC3 /* ExtractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084EC5C12C249E4300BA9FC3 /* ExtractionViewController.swift */; };
+		084EC5C42C24A92800BA9FC3 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084EC5C32C24A92800BA9FC3 /* FrameView.swift */; };
+		084EC5C62C24AC9900BA9FC3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084EC5C52C24AC9900BA9FC3 /* UIView.swift */; };
+		084EC5C82C24CB0800BA9FC3 /* VideoCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084EC5C72C24CB0800BA9FC3 /* VideoCreator.swift */; };
 		086438162C21FB63007A428E /* SharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086438152C21FB63007A428E /* SharingViewController.swift */; };
 		08C137952C21229E0010AD75 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 08C137942C21229E0010AD75 /* SnapKit */; };
 		08C137982C2129E30010AD75 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C137972C2129E30010AD75 /* CardView.swift */; };
@@ -35,19 +39,23 @@
 		633EB1222C22C3DD006F89E7 /* Test>FrameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB1212C22C3DD006F89E7 /* Test>FrameCardView.swift */; };
 		633EB1242C22F091006F89E7 /* Test>BottomProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB1232C22F091006F89E7 /* Test>BottomProgress.swift */; };
 		6345EE292C21271E0076CE33 /* AsyncSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345EE282C21271E0076CE33 /* AsyncSequence.swift */; };
+		636510C42C2D229F00B2A2E9 /* VideoFrameDividerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636510C32C2D229F00B2A2E9 /* VideoFrameDividerScene.swift */; };
 		638F14D92C23DA7900CD3F2E /* PhotoSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F14D82C23DA7900CD3F2E /* PhotoSelectionViewController.swift */; };
 		638F14DD2C23DAD900CD3F2E /* ThumbnailFourFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F14DC2C23DAD900CD3F2E /* ThumbnailFourFrameView.swift */; };
-		638F14DF2C23DB6200CD3F2E /* ThumbnailSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F14DE2C23DB6200CD3F2E /* ThumbnailSelectorView.swift */; };
 		638F14E12C23DC1C00CD3F2E /* SelectDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F14E02C23DC1C00CD3F2E /* SelectDoneButton.swift */; };
-		638F14E32C23DC7C00CD3F2E /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F14E22C23DC7C00CD3F2E /* LoadingVC.swift */; };
 		638F14E52C23DCE800CD3F2E /* ReselectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F14E42C23DCE800CD3F2E /* ReselectButton.swift */; };
+		63B68F7B2C35932A0047D610 /* FrameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B68F7A2C35932A0047D610 /* FrameService.swift */; };
+		63B68F7D2C35976B0047D610 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B68F7C2C35976B0047D610 /* LoadingVC.swift */; };
 		63B869F32C22690800577592 /* Test>ThumbnailSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B869F22C22690800577592 /* Test>ThumbnailSelectorView.swift */; };
+		63C9F9102C3598DB00451694 /* ThumbnailSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C9F90F2C3598DB00451694 /* ThumbnailSelectorView.swift */; };
+
 		63DB9D442C21D8740047DED0 /* Test>PhotoSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D432C21D8740047DED0 /* Test>PhotoSelectorVC.swift */; };
 		63DB9D482C21D8E50047DED0 /* Test>ThumbnailFourFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D472C21D8E50047DED0 /* Test>ThumbnailFourFrameView.swift */; };
 		63DB9D4A2C21DD5D0047DED0 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D492C21DD5D0047DED0 /* BaseVC.swift */; };
 		63DB9D4C2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D4B2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift */; };
 		63DB9D4E2C21ED320047DED0 /* ThumbnailExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D4D2C21ED320047DED0 /* ThumbnailExecutor.swift */; };
 		63DB9D502C21ED9A0047DED0 /* PHAssetExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB9D4F2C21ED9A0047DED0 /* PHAssetExtensions.swift */; };
+		63FC26212C357B74007C6703 /* ExtractService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC26202C357B74007C6703 /* ExtractService.swift */; };
 		63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC703A2C201C2300F9B3A0 /* TestViewController.swift */; };
 		63FC70412C201DD200F9B3A0 /* TestVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC70402C201DD200F9B3A0 /* TestVideoView.swift */; };
 		63FC70432C201F1E00F9B3A0 /* LPtoAVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */; };
@@ -70,7 +78,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		084EC5BF2C24968B00BA9FC3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		084EC5C12C249E4300BA9FC3 /* ExtractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionViewController.swift; sourceTree = "<group>"; };
+		084EC5C32C24A92800BA9FC3 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		084EC5C52C24AC9900BA9FC3 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		084EC5C72C24CB0800BA9FC3 /* VideoCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCreator.swift; sourceTree = "<group>"; };
 		086438152C21FB63007A428E /* SharingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingViewController.swift; sourceTree = "<group>"; };
 		08C137972C2129E30010AD75 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		08C1379C2C2181260010AD75 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -102,19 +127,23 @@
 		633EB1212C22C3DD006F89E7 /* Test>FrameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test>FrameCardView.swift"; sourceTree = "<group>"; };
 		633EB1232C22F091006F89E7 /* Test>BottomProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test>BottomProgress.swift"; sourceTree = "<group>"; };
 		6345EE282C21271E0076CE33 /* AsyncSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncSequence.swift; sourceTree = "<group>"; };
+		636510C32C2D229F00B2A2E9 /* VideoFrameDividerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFrameDividerScene.swift; sourceTree = "<group>"; };
 		638F14D82C23DA7900CD3F2E /* PhotoSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectionViewController.swift; sourceTree = "<group>"; };
 		638F14DC2C23DAD900CD3F2E /* ThumbnailFourFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailFourFrameView.swift; sourceTree = "<group>"; };
-		638F14DE2C23DB6200CD3F2E /* ThumbnailSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailSelectorView.swift; sourceTree = "<group>"; };
 		638F14E02C23DC1C00CD3F2E /* SelectDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoneButton.swift; sourceTree = "<group>"; };
-		638F14E22C23DC7C00CD3F2E /* LoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingVC.swift; path = LiveFourCut/Utils/LoadingVC.swift; sourceTree = SOURCE_ROOT; };
 		638F14E42C23DCE800CD3F2E /* ReselectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReselectButton.swift; sourceTree = "<group>"; };
+		63B68F7A2C35932A0047D610 /* FrameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameService.swift; sourceTree = "<group>"; };
+		63B68F7C2C35976B0047D610 /* LoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		63B869F22C22690800577592 /* Test>ThumbnailSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test>ThumbnailSelectorView.swift"; sourceTree = "<group>"; };
+		63C9F90F2C3598DB00451694 /* ThumbnailSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailSelectorView.swift; sourceTree = "<group>"; };
+
 		63DB9D432C21D8740047DED0 /* Test>PhotoSelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test>PhotoSelectorVC.swift"; sourceTree = "<group>"; };
 		63DB9D472C21D8E50047DED0 /* Test>ThumbnailFourFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test>ThumbnailFourFrameView.swift"; sourceTree = "<group>"; };
 		63DB9D492C21DD5D0047DED0 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		63DB9D4B2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test>FrameSelectorVC.swift"; sourceTree = "<group>"; };
 		63DB9D4D2C21ED320047DED0 /* ThumbnailExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailExecutor.swift; sourceTree = "<group>"; };
 		63DB9D4F2C21ED9A0047DED0 /* PHAssetExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetExtensions.swift; sourceTree = "<group>"; };
+		63FC26202C357B74007C6703 /* ExtractService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractService.swift; sourceTree = "<group>"; };
 		63FC703A2C201C2300F9B3A0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		63FC70402C201DD200F9B3A0 /* TestVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVideoView.swift; sourceTree = "<group>"; };
 		63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPtoAVService.swift; sourceTree = "<group>"; };
@@ -146,6 +175,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		084EC5C02C249E3200BA9FC3 /* ExtractionScene */ = {
+			isa = PBXGroup;
+			children = (
+				084EC5C12C249E4300BA9FC3 /* ExtractionViewController.swift */,
+			);
+			path = ExtractionScene;
+			sourceTree = "<group>";
+		};
 		08775DFA2C20210A008D8BA6 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +195,8 @@
 		08775DFB2C20210E008D8BA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				08775DFC2C20211C008D8BA6 /* Utils */,
+				084EC5C02C249E3200BA9FC3 /* ExtractionScene */,
 				63077A032C245BAB00C4017A /* FourCutPreScene */,
 				638F14DA2C23DA8700CD3F2E /* FrameSelectionScene */,
 				638F14D72C23DA5600CD3F2E /* PhotoSelectionScene */,
@@ -173,7 +212,9 @@
 				63077A002C24541D00C4017A /* ViewHelpers */,
 				08C137972C2129E30010AD75 /* CardView.swift */,
 				63DB9D492C21DD5D0047DED0 /* BaseVC.swift */,
-				638F14E22C23DC7C00CD3F2E /* LoadingVC.swift */,
+				63B68F7C2C35976B0047D610 /* LoadingVC.swift */,
+				084EC5C32C24A92800BA9FC3 /* FrameView.swift */,
+				084EC5C72C24CB0800BA9FC3 /* VideoCreator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -190,6 +231,7 @@
 			children = (
 				08C1379C2C2181260010AD75 /* UIColor+.swift */,
 				630779FB2C24530A00C4017A /* UINavigationController+.swift */,
+				084EC5C52C24AC9900BA9FC3 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -312,6 +354,14 @@
 			path = PreviewScene;
 			sourceTree = "<group>";
 		};
+		636510C22C2D21F300B2A2E9 /* VideoFrameDividerScene */ = {
+			isa = PBXGroup;
+			children = (
+				636510C32C2D229F00B2A2E9 /* VideoFrameDividerScene.swift */,
+			);
+			path = VideoFrameDividerScene;
+			sourceTree = "<group>";
+		};
 		638F14D72C23DA5600CD3F2E /* PhotoSelectionScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,7 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				638F14DC2C23DAD900CD3F2E /* ThumbnailFourFrameView.swift */,
-				638F14DE2C23DB6200CD3F2E /* ThumbnailSelectorView.swift */,
+				63C9F90F2C3598DB00451694 /* ThumbnailSelectorView.swift */,
 				638F14E02C23DC1C00CD3F2E /* SelectDoneButton.swift */,
 				638F14E42C23DCE800CD3F2E /* ReselectButton.swift */,
 			);
@@ -366,6 +416,7 @@
 		63FC70392C201BF600F9B3A0 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				636510C22C2D21F300B2A2E9 /* VideoFrameDividerScene */,
 				633EB11E2C22C07F006F89E7 /* PreviewScene */,
 				63DB9D452C21D8B20047DED0 /* PhotoSelectorScene */,
 				63FC703A2C201C2300F9B3A0 /* TestViewController.swift */,
@@ -379,6 +430,8 @@
 			children = (
 				63FC70422C201F1E00F9B3A0 /* LPtoAVService.swift */,
 				63DB9D4F2C21ED9A0047DED0 /* PHAssetExtensions.swift */,
+				63FC26202C357B74007C6703 /* ExtractService.swift */,
+				63B68F7A2C35932A0047D610 /* FrameService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -393,6 +446,7 @@
 				08DBE6592C1C23B1000593D5 /* Sources */,
 				08DBE65A2C1C23B1000593D5 /* Frameworks */,
 				08DBE65B2C1C23B1000593D5 /* Resources */,
+				084EC5BF2C24968B00BA9FC3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -521,25 +575,30 @@
 				63DB9D502C21ED9A0047DED0 /* PHAssetExtensions.swift in Sources */,
 				08DBE6652C1C23B1000593D5 /* FrameSelectionViewController.swift in Sources */,
 				63DB9D4E2C21ED320047DED0 /* ThumbnailExecutor.swift in Sources */,
+				636510C42C2D229F00B2A2E9 /* VideoFrameDividerScene.swift in Sources */,
 				63B869F32C22690800577592 /* Test>ThumbnailSelectorView.swift in Sources */,
+				084EC5C82C24CB0800BA9FC3 /* VideoCreator.swift in Sources */,
 				08C1379D2C2181260010AD75 /* UIColor+.swift in Sources */,
 				63DB9D442C21D8740047DED0 /* Test>PhotoSelectorVC.swift in Sources */,
 				63077A022C24542900C4017A /* NavigationBackButton.swift in Sources */,
 				086438162C21FB63007A428E /* SharingViewController.swift in Sources */,
+				084EC5C42C24A92800BA9FC3 /* FrameView.swift in Sources */,
 				638F14DD2C23DAD900CD3F2E /* ThumbnailFourFrameView.swift in Sources */,
+				63C9F9102C3598DB00451694 /* ThumbnailSelectorView.swift in Sources */,
 				63DB9D4A2C21DD5D0047DED0 /* BaseVC.swift in Sources */,
+				084EC5C62C24AC9900BA9FC3 /* UIView.swift in Sources */,
+				084EC5C22C249E4300BA9FC3 /* ExtractionViewController.swift in Sources */,
+				63FC26212C357B74007C6703 /* ExtractService.swift in Sources */,
 				63077A072C245C6900C4017A /* PreFourFrameView.swift in Sources */,
 				630779FC2C24530A00C4017A /* UINavigationController+.swift in Sources */,
 				633EB11D2C22BDE7006F89E7 /* Test>SelectDoneBtn.swift in Sources */,
-				638F14E32C23DC7C00CD3F2E /* LoadingVC.swift in Sources */,
-				638F14DF2C23DB6200CD3F2E /* ThumbnailSelectorView.swift in Sources */,
 				63077A052C245BD100C4017A /* FourCutPreViewController.swift in Sources */,
 				6345EE292C21271E0076CE33 /* AsyncSequence.swift in Sources */,
+				63B68F7D2C35976B0047D610 /* LoadingVC.swift in Sources */,
 				08DBE6612C1C23B1000593D5 /* AppDelegate.swift in Sources */,
 				63077A0C2C246C9300C4017A /* VideoExecutor.swift in Sources */,
 				63DB9D4C2C21ECCB0047DED0 /* Test>FrameSelectorVC.swift in Sources */,
 				08C137982C2129E30010AD75 /* CardView.swift in Sources */,
-				6345EE292C21271E0076CE33 /* AsyncSequence.swift in Sources */,
 				63FC703B2C201C2300F9B3A0 /* TestViewController.swift in Sources */,
 				63FC70432C201F1E00F9B3A0 /* LPtoAVService.swift in Sources */,
 				638F14E12C23DC1C00CD3F2E /* SelectDoneButton.swift in Sources */,
@@ -555,6 +614,7 @@
 				633EB11B2C22B8D7006F89E7 /* ImageContainer.swift in Sources */,
 				638F14E52C23DCE800CD3F2E /* ReselectButton.swift in Sources */,
 				638F14D92C23DA7900CD3F2E /* PhotoSelectionViewController.swift in Sources */,
+				63B68F7B2C35932A0047D610 /* FrameService.swift in Sources */,
 				633EB1222C22C3DD006F89E7 /* Test>FrameCardView.swift in Sources */,
 				633EB1202C22C087006F89E7 /* PreviewVC.swift in Sources */,
 			);

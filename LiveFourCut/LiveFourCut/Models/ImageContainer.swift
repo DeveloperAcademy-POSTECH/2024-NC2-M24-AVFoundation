@@ -2,13 +2,13 @@
 //  ImageContainer.swift
 //  LiveFourCut
 //
-//  Created by Developer on 6/19/24.
+//  Created by Greem on 6/19/24.
 //
 
 import Foundation
 import UIKit
-struct ImageContainer:Identifiable{
-    var id: String
-    var image: UIImage
-    var idx: Int
+struct ImageContainer:Identifiable {
+    var id: String // PHAsset Local Identifier
+    var image: UIImage // 이미지
+    var idx: Int // 앨범에서 가져올 때 인덱스
 }

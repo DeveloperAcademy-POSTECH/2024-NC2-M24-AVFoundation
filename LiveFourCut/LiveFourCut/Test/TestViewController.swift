@@ -2,7 +2,7 @@
 //  TestViewController.swift
 //  LiveFourCut
 //
-//  Created by Developer on 6/17/24.
+//  Created by Greem on 6/17/24.
 //
 
 import UIKit
@@ -11,18 +11,19 @@ import PhotosUI
 import AVFoundation
 import Combine
 enum Test{
-    static let main:UIViewController = UINavigationController(rootViewController: FrameSelectorVC())
+    static let main:UIViewController = UINavigationController(rootViewController: InputLivePhotoToSimulator())
 }
 extension Test{
     final class InputLivePhotoToSimulator: UIViewController{
-        let names = ["IMG_2380","IMG_2382","IMG_2383","IMG_2384"]
+        let names = ["IMG_6599","IMG_6600","IMG_6604","IMG_6606","IMG_6609"]
         override func viewDidLoad() {
             super.viewDidLoad()
             PHPhotoLibrary.shared().performChanges({
                 for name in self.names{
                     let request = PHAssetCreationRequest.forAsset()
-                    request.addResource(with: .photo, fileURL: URL(string: "/Users/kimtaeyoon/Downloads/\(name).HEIC")!, options: nil)
-                    request.addResource(with: .pairedVideo, fileURL: URL(string: "/Users/kimtaeyoon/Downloads/\(name).mov")!, options: nil)
+                    
+                    request.addResource(with: .photo, fileURL: URL(string: "/Users/yundongju/Downloads/\(name).HEIC")!, options: nil)
+                    request.addResource(with: .pairedVideo, fileURL: URL(string: "/Users/yundongju/Downloads/\(name).mov")!, options: nil)
                 }
             }) { (success, error) in
                 
@@ -104,24 +105,21 @@ extension Test{
             phVC.delegate = self
             self.present(phVC , animated: true)
         }
-        @objc func playTriggerTapped(sender: UIButton){
-            Task{
-                for v in [videoView1,videoView2,videoView3,videoView4]{
+        @objc func playTriggerTapped(sender: UIButton) {
+            Task {
+                for v in [videoView1,videoView2,videoView3,videoView4] {
                     Task.detached { await v.play() }
                 }
             }
         }
     }
 }
-extension Test.FetchEditController: PHPickerViewControllerDelegate{
+extension Test.FetchEditController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         let identifiers = results.map(\.assetIdentifier).map{$0!}
         let assets:PHFetchResult<PHAsset> = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
-        Task{
-            await service.pickerResultAppender(assets: assets)
-        }
+        Task{ await service.pickerResultAppender(assets: assets) }
         self.dismiss(animated: true)
     }
     
 }
-
