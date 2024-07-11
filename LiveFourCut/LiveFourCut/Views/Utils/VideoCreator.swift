@@ -146,7 +146,7 @@ class VideoCreator {
     }
 }
 extension VideoCreator{
-    func createVideo(from images: [CGImage], completion: @escaping (Bool, Error?) -> Void) {
+    func createVideo(from images: inout [CGImage], completion: @escaping (Bool, Error?) -> Void) {
         let writer = try! AVAssetWriter(outputURL: outputURL, fileType: .mov)
         let videoSize = CGSize(width: self.videoSize.width * 3, height: self.videoSize.height * 3)
         let settings: [String: Any] = [

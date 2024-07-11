@@ -25,7 +25,7 @@ final class FrameGenerator:FrameServiceProtocol{
     var frameType:FrameType = .basic2x2
     var frameTargetSize: CGSize = .init(width: 300, height: 400)
     var frameCornerRadius: CGFloat = 40
-    func groupReduce(groupImage:[[CGImage]],spacing: CGFloat) async throws -> [CGImage]{
+    func groupReduce(groupImage: [[CGImage]],spacing: CGFloat) async throws -> [CGImage]{
         let frameCount = groupImage.first!.count
         let groupCount = groupImage.count
         let images:[CGImage] = try await withThrowingTaskGroup(of: (Int,CGImage).self) { taskGroup in
@@ -33,6 +33,7 @@ final class FrameGenerator:FrameServiceProtocol{
                 let singleFrameImages = (0..<groupCount).map{ groupImage[$0][offset] }
                 taskGroup.addTask {
                     let reduceImage = try! self.reduce(images: singleFrameImages, spacing: 10)
+
                     return (offset,reduceImage)
                 }
             }

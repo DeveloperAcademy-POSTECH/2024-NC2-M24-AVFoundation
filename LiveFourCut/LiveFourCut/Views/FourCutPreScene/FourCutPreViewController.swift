@@ -86,32 +86,42 @@ final class FourCutPreViewController: BaseVC{
 //        extractionVC.minDuration = self.minDuration
 //        extractionVC.isLaunch = false
         
-        shareBtn.action = {
+        shareBtn.action = {[weak self] in
+            guard let self else { return }
+            self.view.isUserInteractionEnabled = false
             Task{[weak self] in
                 guard let self else { return }
+                let interactionEnabled = { Task{@MainActor in self.view.isUserInteractionEnabled = true } }
                 self.extractService.minDuration = Double(self.minDuration)
                 print("minDuration \(self.minDuration)")
-                let frameImages = try await self.extractService.extractFrameImages()
-                let imgDatas:[CGImage] = try await self.frameService.groupReduce(groupImage: frameImages, spacing: 10)
-                print("추출은 된다. \(frameImages.first?.count)")
-                print("감소는 된다. \(imgDatas.count)")
-                let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("LiveFourCut.mp4")
-                if FileManager.default.fileExists(atPath: outputURL.path()){
-                    try? FileManager.default.removeItem(at: outputURL)
-                }
-                let videoCreator = VideoCreator(videoSize: self.frameService.frameTargetSize, outputURL: outputURL)
-                videoCreator.createVideo(from: imgDatas) { success, error in
-                    if success{
-                        DispatchQueue.main.async {
-                            let sharingViewController = SharingViewController()
-                            sharingViewController.videoURL = outputURL
-                            self.navigationController?.isNavigationBarHidden = true
-                            self.navigationController?.pushViewController(sharingViewController, animated: true)
+                do{
+                    var frameImages = try await self.extractService.extractFrameImages()
+                    var imgDatas:[CGImage] = try await self.frameService.groupReduce(groupImage: frameImages, spacing: 10)
+                    print("추출은 된다. \(frameImages.first?.count)")
+                    print("감소는 된다. \(imgDatas.count)")
+                    frameImages = [] // 함수 사용 후 스택에서 제거해야한다.
+                    let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("LiveFourCut.mp4")
+                    if FileManager.default.fileExists(atPath: outputURL.path()){
+                        try? FileManager.default.removeItem(at: outputURL)
+                    }
+                    let videoCreator = VideoCreator(videoSize: self.frameService.frameTargetSize, outputURL: outputURL)
+                    videoCreator.createVideo(from: &imgDatas) { success, error in
+                        if success{
+                            DispatchQueue.main.async {
+                                let sharingViewController = SharingViewController()
+                                sharingViewController.videoURL = outputURL
+                                self.navigationController?.isNavigationBarHidden = true
+                                self.navigationController?.pushViewController(sharingViewController, animated: true)
+                                _ = interactionEnabled()
+                            }
+                        }else{
+                            _ = interactionEnabled()
                         }
                     }
+                }catch{
+                    _ = interactionEnabled()
                 }
             }
-            
 //            self.navigationController?.pushViewController(extractionVC, animated: true)
         }
         replayBtn.action = {

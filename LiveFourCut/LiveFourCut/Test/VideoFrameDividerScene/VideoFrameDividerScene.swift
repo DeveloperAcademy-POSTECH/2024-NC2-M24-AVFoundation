@@ -75,12 +75,14 @@ extension CGImage{
         let bitsPerComponent = cgImage.bitsPerComponent
         let bytesPerRow = cgImage.bytesPerRow
         let colorSpace = cgImage.colorSpace
+        
         let bitmapInfo = cgImage.bitmapInfo
         guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: bitsPerComponent,
                                       bytesPerRow: bytesPerRow,
                                       space: colorSpace!,
                                       bitmapInfo: bitmapInfo.rawValue) else { return nil }
-        context.setFillColor(UIColor.blue.cgColor)
+        context.setFillColor(UIColor.clear.cgColor)
+        context.setAlpha(1)
         context.fill([.init(x: 0, y: 0, width: width, height: height)])
         context.beginPath()
         let roundedPath2 = CGPath.init(roundedRect: .init(x: 0, y: 0, width: width, height: height), cornerWidth: radius , cornerHeight: radius, transform: nil)
