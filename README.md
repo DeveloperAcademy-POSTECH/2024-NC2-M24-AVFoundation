@@ -32,4 +32,4 @@
 | Greem 김태윤 | Xerath 윤동주 |
 |:-:|:-:|
 |<img src="https://avatars.githubusercontent.com/u/46375289?v=4" width=200>|<img src="https://avatars.githubusercontent.com/u/54929503?v=4" width=200>|
-|[@yoondj98](https://github.com/yoondj98)|[@taeyoon17](https://github.com/taeyoon17)|
+|[@taeyoon17](https://github.com/taeyoon17)|[@yoondj98](https://github.com/yoondj98)|
