@@ -29,7 +29,7 @@ actor ThumbnailExecutor{ // Actor는 상속이 가능하다
         fetchItems.removeAll()
         let resultCount = result.count
         self.progressSubject.send(0)
-        result.enumerateObjects(options:.concurrent) { asset, val, idx in
+        result.enumerateObjects(options:.concurrent) { asset, _, _ in
             Task{
                 do{
                     let image = try await asset.convertToUIImage(size: .init(width: 120, height: 120 * 1.3333)) 

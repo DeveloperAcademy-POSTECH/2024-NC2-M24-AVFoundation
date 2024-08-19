@@ -21,18 +21,13 @@ extension FourCutPreViewController.PreFourFrameView{
         }
         var container: AVAssetContainer? {
             didSet {
-                guard let container else {
-                    item = nil
-                    return
-                }
+                guard let container else { item = nil; return }
                 item = AVPlayerItem(asset: AVAsset(url: URL(string:container.originalAssetURL)!))
             }
         }
-        var cancellabe = Set<AnyCancellable>()
         private var item: AVPlayerItem? {
             didSet{
                 guard let item else {
-                    print("여기가 불리는건가?")
                     self.queuePlayer.pause()
                     self.queuePlayer.replaceCurrentItem(with: nil)
                     return
